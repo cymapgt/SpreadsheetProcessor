@@ -1,0 +1,70 @@
+<?xml version="1.0"?>
+<source xmlns="http://xml.phpdox.net/token">
+  <file xmlns="http://xml.phpdox.net/src" path="/home/rhossis/NetBeansProjects/cymapgt/core/application/spreadsheet/src/Exception" file="SpreadsheetProcessorFactoryException.php" realpath="/home/rhossis/NetBeansProjects/cymapgt/core/application/spreadsheet/src/Exception/SpreadsheetProcessorFactoryException.php" size="408" time="2014-10-01T07:56:09+03:00" unixtime="1412139369" sha1="0b17eebc66adc795dd455f6aa0283402b7cfc67d" relative="Exception/SpreadsheetProcessorFactoryException.php"/>
+  <line no="1">
+    <token name="T_OPEN_TAG">&lt;?php</token>
+  </line>
+  <line no="2">
+    <token name="T_NAMESPACE">namespace</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_STRING">cymapgt</token>
+    <token name="T_NS_SEPARATOR">\</token>
+    <token name="T_STRING">Exception</token>
+    <token name="T_PHPDOX_SEMICOLON">;</token>
+  </line>
+  <line no="3"/>
+  <line no="4">
+    <token name="T_USE">use</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_STRING">Exception</token>
+    <token name="T_PHPDOX_SEMICOLON">;</token>
+  </line>
+  <line no="5"/>
+  <line no="6">
+    <token name="T_DOC_COMMENT">/**</token>
+  </line>
+  <line no="7">
+    <token name="T_DOC_COMMENT"> * SpreadsheetProcessorFactoryException</token>
+  </line>
+  <line no="8">
+    <token name="T_DOC_COMMENT"> * This is the exception class for the SpreadsheetProcessorFactory</token>
+  </line>
+  <line no="9">
+    <token name="T_DOC_COMMENT"> *</token>
+  </line>
+  <line no="10">
+    <token name="T_DOC_COMMENT"> * @category	Spreadsheet</token>
+  </line>
+  <line no="11">
+    <token name="T_DOC_COMMENT"> * @package     cymapgt.core.application.Spreadsheet</token>
+  </line>
+  <line no="12">
+    <token name="T_DOC_COMMENT"> * @copyright   Copyright (c) 2014 CYMAP-GT</token>
+  </line>
+  <line no="13">
+    <token name="T_DOC_COMMENT"> * @author      Cyril Ogana</token>
+  </line>
+  <line no="14">
+    <token name="T_DOC_COMMENT"> * </token>
+  </line>
+  <line no="15">
+    <token name="T_DOC_COMMENT"> */</token>
+    <token name="T_WHITESPACE">	</token>
+  </line>
+  <line no="16">
+    <token name="T_CLASS">class</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_STRING">SpreadsheetProcessorFactoryException</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_EXTENDS">extends</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_STRING">Exception</token>
+  </line>
+  <line no="17">
+    <token name="T_PHPDOX_OPEN_CURLY">{</token>
+  </line>
+  <line no="18">
+    <token name="T_PHPDOX_CLOSE_CURLY">}</token>
+  </line>
+  <line no="19"/>
+</source>

@@ -1,0 +1,382 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="cymapgt\core\application\spreadsheet\SpreadsheetProcessor\PHPExcelWrapper" namespace="cymapgt\core\application\spreadsheet\SpreadsheetProcessor" name="PHPExcelWrapper" abstract="false" final="false" start="27" end="854">
+  <file path="/home/rhossis/NetBeansProjects/cymapgt/core/application/spreadsheet/src/SpreadsheetProcessor" file="PHPExcelWrapper.php" realpath="/home/rhossis/NetBeansProjects/cymapgt/core/application/spreadsheet/src/SpreadsheetProcessor/PHPExcelWrapper.php" size="32544" time="2014-10-01T07:56:09+03:00" unixtime="1412139369" sha1="e0951fdb49c787a903a40d1302cd5bc653f01b73" relative="SpreadsheetProcessor/PHPExcelWrapper.php"/>
+  <docblock>
+    <description compact="PHPExcelWrapper class is a wrapper for the PHPExcel library">The PHPExcelWrapper class aims to make reading/writing Excel files easier by
+creating an overall stream object. The PHPExcelWrapper class can be either
+a CSV or an Excel5/2007 type. There are no 'reading' or 'get' methods within
+this class becuase of the idea that it is much easier to read in data from
+a CSV than an Excel file. Thus we implement the AutoConvert static function
+which you can use to convert (if needed) an Excel file to a CSV file and
+read in the data via a file object and explode(',', $line)
+NOTE: if the Type is CSV, then a lot of functions in this class do not
+      do anything (e.g. autoFit() simply returns out)</description>
+    <license name="http://www.opensource.org/licenses/bsd-license.php"/>
+  </docblock>
+  <member name="phpXl" type="{unknown}" visibility="protected" line="30"/>
+  <member name="phpXlWriter" type="{unknown}" visibility="protected" line="33"/>
+  <member name="phpXlReader" type="{unknown}" visibility="protected" line="36"/>
+  <member name="handle" type="{unknown}" visibility="protected" line="39"/>
+  <member name="fileName" type="{unknown}" visibility="public" line="42"/>
+  <member name="isOpen" type="{unknown}" visibility="public" line="45"/>
+  <member name="currentRow" type="{unknown}" visibility="public" line="48"/>
+  <member name="type" type="{unknown}" visibility="public" line="51"/>
+  <constructor name="__construct" start="59" end="69" abstract="false" final="false" static="false" visibility="public">
+    <parameter name="fileName" byreference="false" type="{unknown}"/>
+    <parameter name="fileDir" byreference="false" type="{unknown}"/>
+    <parameter name="fileExt" byreference="false" type="string" default="'xlsx'"/>
+    <parameter name="type" byreference="false" type="{unknown}" default="PHPExcelWrapperType::Excel2007"/>
+    <parameter name="ovrFlag" byreference="false" type="{unknown}" default="false"/>
+  </constructor>
+  <method name="setXlObj" start="77" end="104" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="function setXlObj()        = This function sets the protected PhpXl property. We only use this                              when we are injecting a file from objReader for editing Cyril Ogana - 2013-01-29"/>
+      <param description="This is the phpexcel object being opened for reading" type="object" variable="$obj"/>
+    </docblock>
+    <parameter name="obj" byreference="false" type="{unknown}"/>
+    <parameter name="objType" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="autoConvert" start="127" end="172" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Automatically convert a file type to another">Automatically convert a file type to another. (From CSV to XLS/XLSX and back)
+The purpose of this function is primarly to convert an XLS/XLSX file to a CSV
+file for ease of reading data (just open a file handle, read line by line
+and do an explode(',', $line)</description>
+      <param description="The file name to convert. It doesn't have to have an extnesion as" type="string" variable="$fileToConvert"/>
+      <param description="The base directory from the factory" type="string" variable="$baseDir">PHPExcel can auto open in the proper format</param>
+      <param description="(OPTIONAL) The name of the new file to save." type="string" variable="$newFileName">This is file name ONLY (no folder path or extension)
+                                                  Default is tmp.</param>
+      <param description="(OPTIONAL) The type to convert to, either Excel5, Excel2007 or CSV." type="object" variable="$typeTo">Default is Excel5.<type full="cymapgt\core\application\spreadsheet\SpreadsheetProcessor\PHPExcelWrapper\PHPExcelWrapperType" namespace="cymapgt\core\application\spreadsheet\SpreadsheetProcessor\PHPExcelWrapper" name="PHPExcelWrapperType"/></param>
+      <param description="(OPTIONAL) True to automatically delete the $fileToConvert file." type="object" variable="$deleteOldFile">Default is false.<type full="cymapgt\core\application\spreadsheet\SpreadsheetProcessor\bool" namespace="cymapgt\core\application\spreadsheet\SpreadsheetProcessor" name="bool"/></param>
+      <return description="The new file name of the converted file" type="string"/>
+    </docblock>
+    <parameter name="fileToConvert" byreference="false" type="{unknown}"/>
+    <parameter name="baseDir" byreference="false" type="{unknown}"/>
+    <parameter name="newFileName" byreference="false" type="string" default="'tmp'"/>
+    <parameter name="typeTo" byreference="false" type="{unknown}" default="PHPExcelWrapperType::Excel5"/>
+    <parameter name="deleteOldFile" byreference="false" type="{unknown}" default="false"/>
+    <inline>
+      <comment value="NOTE: Any saving/reading to the Excel2007 format needs php_zip.so or php_zip.dll to operate" line="134"/>
+    </inline>
+  </method>
+  <method name="getNewFileName" start="188" end="209" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Gets a new file name for a relevently named temp file">This function will get a new file name based on the parameters passed in
+If a file exists in the directory it will increment a counter and append
+it between the file name and extension.</description>
+      <param description="The directory to look at for a new file name" type="string" variable="$dir"/>
+      <param description="The old file name" type="string" variable="$oldFileName"/>
+      <param description="The extension of the file" type="string" variable="$ext"/>
+      <param description="If true, we do not create file indexes, but overwrite" type="object" variable="$ovrFlag">
+        <type full="cymapgt\core\application\spreadsheet\SpreadsheetProcessor\bool" namespace="cymapgt\core\application\spreadsheet\SpreadsheetProcessor" name="bool"/>
+      </param>
+      <returns value="string value of the new file name"/>
+    </docblock>
+    <parameter name="dir" byreference="false" type="{unknown}"/>
+    <parameter name="oldFileName" byreference="false" type="{unknown}"/>
+    <parameter name="ext" byreference="false" type="{unknown}"/>
+    <parameter name="ovrFlag" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="close" start="214" end="229" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Flushes out and saves any data and closes all underlying streams"/>
+    </docblock>
+  </method>
+  <method name="flush" start="234" end="242" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Flushes any data to the file (saves the file)"/>
+    </docblock>
+    <inline>
+      <comment value="CSV type doesn't need flush since it was open withw w+" line="235"/>
+    </inline>
+  </method>
+  <method name="getBaseStream" start="249" end="255" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Get the underlying stream object"/>
+      <returns value="Either the file object if Type is CSV or the underlying PHPExcel object"/>
+    </docblock>
+  </method>
+  <method name="getExcelAlphaColumn" start="264" end="285" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Gets the column name from a number (e.g. 2='B', 27='AA', etc.)"/>
+      <param description="The column number to convert" type="int" variable="$col"/>
+      <returns value="A string representation of the column number"/>
+    </docblock>
+    <parameter name="col" byreference="false" type="{unknown}"/>
+    <inline>
+      <comment value="disallow negative col number...Cyril Ogana 2014.04.30" line="265"/>
+    </inline>
+  </method>
+  <method name="getExcelColumnFromAlpha" start="294" end="310" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Gets the column number from column name (e.g. 'B'=2, 'AA'=27, etc.)"/>
+      <param description="The column name to convert" type="string" variable="$col"/>
+      <returns value="An integer value representation of the column name"/>
+    </docblock>
+    <parameter name="col" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getExcelAlphanumericColumnRow" start="320" end="323" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Gets the Excel column name from a numeric column and row (e.g. 2 and 1 = 'B1', 27 and 2 = 'AA2', etc.)"/>
+      <param description="The column to convert" type="int" variable="$col"/>
+      <param description="The row" type="int" variable="$row"/>
+      <returns value="A string represenation of the column name and row number"/>
+    </docblock>
+    <parameter name="col" byreference="false" type="{unknown}"/>
+    <parameter name="row" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getCellCoord" start="337" end="349" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Gets a string representation of a cell coordinate"/>
+      <param description="The column name/number (can be either an int or string)" type="mixed" variable="$col"/>
+      <param description="The row" type="int" variable="$row"/>
+      <param description="(OPTIONAL) If this is false, the function expects" type="object" variable="$isCoordinate">$col to be a numeric value. If this value is true
+this funcition simply concatenates $col and $row
+Default is false.<type full="cymapgt\core\application\spreadsheet\SpreadsheetProcessor\bool" namespace="cymapgt\core\application\spreadsheet\SpreadsheetProcessor" name="bool"/></param>
+      <returns value="A string representation of a cell coordinate"/>
+    </docblock>
+    <parameter name="col" byreference="false" type="{unknown}"/>
+    <parameter name="row" byreference="false" type="{unknown}"/>
+    <parameter name="isCoordinate" byreference="false" type="{unknown}" default="false"/>
+  </method>
+  <method name="open" start="358" end="394" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Open a file"/>
+      <param description="The file to open" type="string" variable="$fileName"/>
+      <param description="(OPTIONAL) The type of file to open (CSV/Excel5/Excel2007)." type="object" variable="$type">Default is PHPExcelWrapperType::Excel5.<type full="cymapgt\core\application\spreadsheet\SpreadsheetProcessor\PHPExcelWrapper\PHPExcelWrapperType" namespace="cymapgt\core\application\spreadsheet\SpreadsheetProcessor\PHPExcelWrapper" name="PHPExcelWrapperType"/></param>
+    </docblock>
+    <parameter name="fileName" byreference="false" type="{unknown}"/>
+    <parameter name="type" byreference="false" type="{unknown}" default="PHPExcelWrapperType::Excel2007"/>
+    <inline>
+      <comment value="Current row gets set to 1 (Excel is not 0 based)" line="366"/>
+    </inline>
+  </method>
+  <method name="setActiveWorksheet" start="401" end="407" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Sets the active worksheet"/>
+      <param description="The worksheet number to set" type="int" variable="$index"/>
+    </docblock>
+    <parameter name="index" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="save" start="412" end="414" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Save the current data and writes it to disk"/>
+    </docblock>
+  </method>
+  <method name="autoFit" start="422" end="441" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Set the columns in the Excel file to autofit the content"/>
+      <param description="(OPTIONAL) The column to autofit." type="int" variable="$column">Default is 0. (0 says all columns with content).</param>
+    </docblock>
+    <parameter name="column" byreference="false" type="integer" default="0"/>
+    <inline>
+      <comment value="Set a specific column" line="427"/>
+    </inline>
+  </method>
+  <method name="setBorders" start="459" end="493" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Set the borders around cells in an Excel file"/>
+      <param description="(OPTIONAL) The column to set the borders around." type="int" variable="$col">Default is 0. (0 says all columns)</param>
+      <param description="(OPTIONAL) The row to set the borders around." type="int" variable="$row">Default is 0. (0 says all rows)</param>
+      <param description="(OPTIONAL) The sides to set the border on." type="object" variable="$borderSides">Default is PHPExcelBorderType::All.<type full="cymapgt\core\application\spreadsheet\SpreadsheetProcessor\PHPExcelWrapper\PHPExcelBorderType" namespace="cymapgt\core\application\spreadsheet\SpreadsheetProcessor\PHPExcelWrapper" name="PHPExcelBorderType"/></param>
+      <param description="(OPTIONAL) The border style to set." type="object" variable="$borderType">Default is PHPExcelBorderStyle::BORDER_THIN.<type full="cymapgt\core\application\spreadsheet\SpreadsheetProcessor\PHPExcelWrapper\PHPExcelBorderStyle" namespace="cymapgt\core\application\spreadsheet\SpreadsheetProcessor\PHPExcelWrapper" name="PHPExcelBorderStyle"/></param>
+      <param description="(OPTIONAL) If this is false, the function expects" type="object" variable="$isCoordinate">$col to be a numeric value. If this value is true
+		 										this funcition simply concatenates $col and $row
+												Default is false.<type full="cymapgt\core\application\spreadsheet\SpreadsheetProcessor\bool" namespace="cymapgt\core\application\spreadsheet\SpreadsheetProcessor" name="bool"/></param>
+    </docblock>
+    <parameter name="col" byreference="false" type="integer" default="0"/>
+    <parameter name="row" byreference="false" type="integer" default="0"/>
+    <parameter name="borderSides" byreference="false" type="{unknown}" default="PHPExcelBorderType::All"/>
+    <parameter name="borderType" byreference="false" type="{unknown}" default="PHPExcelBorderStyle::BORDER_THIN"/>
+    <parameter name="isCoordinate" byreference="false" type="{unknown}" default="false"/>
+    <inline>
+      <comment value="if ($this-&gt;type == PHPExcelWrapperType::CSV) { return; }" line="466"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="$wholeRow = ($col == 0); $wholeCol = ($row == 0);" line="467"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="getHighsetColumn returns letter (AZ), need to convert to num" line="468"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="if($col == 0) { $col = $this-&gt;getExcelColumnFromAlpha($this-&gt;phpXl-&gt;getActiveSheet()-&gt;getHighestColumn()); }" line="469"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="if ($row == 0) { $row = $this-&gt;phpXl-&gt;getActiveSheet()-&gt;getHighestRow(); }" line="470"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="$cellCoordEnd = $this-&gt;getCellCoord($col, $row, $isCoordinate);" line="471"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="$cellCoordStart = 'A1';" line="472"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="if (!$wholeCol || !$wholeRow) { // Only fall in here if one of them is false (Which means don't do all cells)" line="473"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="if ($wholeCol) { $cellCoordStart = $this-&gt;getCellCoord($col, 1, $isCoordinate); }" line="474"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="if ($wholeRow) { $cellCoordStart = 'A'.$row; }" line="475"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="}" line="476"/>
+      <comment value="This code is broken. reverting to the $cellCoord method" line="476"/>
+      <comment value="freeup the memory" line="491"/>
+    </inline>
+  </method>
+  <method name="setCellBackColor" start="506" end="514" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Set the background color of a cell"/>
+      <param description="The column of the cell to set the back color" type="int" variable="$col"/>
+      <param description="The row of the cell to set the back color" type="int" variable="$row"/>
+      <param description="The HTML based RGB color (e.g. 'FF0000' is red)" type="string" variable="$rgb"/>
+      <param description="(OPTIONAL) If this is false, the function expects" type="object" variable="$isCoordinate">$col to be a numeric value. If this value is true
+		 							this funcition simply concatenates $col and $row
+									Default is false.<type full="cymapgt\core\application\spreadsheet\SpreadsheetProcessor\bool" namespace="cymapgt\core\application\spreadsheet\SpreadsheetProcessor" name="bool"/></param>
+    </docblock>
+    <parameter name="col" byreference="false" type="{unknown}"/>
+    <parameter name="row" byreference="false" type="{unknown}"/>
+    <parameter name="rgb" byreference="false" type="{unknown}"/>
+    <parameter name="isCoordinate" byreference="false" type="{unknown}" default="false"/>
+  </method>
+  <method name="setCellTextColor" start="527" end="535" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Set the text color of a cell"/>
+      <param description="The column of the cell to set the text color" type="int" variable="$col"/>
+      <param description="The row of the cell to set the text color" type="int" variable="$row"/>
+      <param description="The HTML based RGB color (e.g. 'FF0000' is red)" type="string" variable="$rgb"/>
+      <param description="(OPTIONAL) If this is false, the function expects" type="object" variable="$isCoordinate">$col to be a numeric value. If this value is true
+		 							this funcition simply concatenates $col and $row
+									Default is false.<type full="cymapgt\core\application\spreadsheet\SpreadsheetProcessor\bool" namespace="cymapgt\core\application\spreadsheet\SpreadsheetProcessor" name="bool"/></param>
+    </docblock>
+    <parameter name="col" byreference="false" type="{unknown}"/>
+    <parameter name="row" byreference="false" type="{unknown}"/>
+    <parameter name="rgb" byreference="false" type="{unknown}"/>
+    <parameter name="isCoordinate" byreference="false" type="{unknown}" default="false"/>
+  </method>
+  <method name="setCellFont" start="555" end="594" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Set the font name and size of a cell">If $col and $row are set to 0 (their default values), then the entire
+active sheet is set to the font family ans size</description>
+      <param description="The font family name to set (e.g. 'Arial', 'Calibri', etc.)" type="string" variable="$fontName">The font name must be a valid font name to set</param>
+      <param description="The font size to set (e.g. 10, 12, etc.)" type="int" variable="$fontSize"/>
+      <param description="(OPTIONAL) The column to set the font on." type="int" variable="$col">Default is 0. (0 means all columns)</param>
+      <param description="(OPTIONAL) The row to set the font on." type="int" variable="$row">Default is 0. (0 means all rows)</param>
+      <param description="(OPTIONAL) If this is false, the function expects" type="object" variable="$isCoordinate">$col to be a numeric value. If this value is true
+		 			this function simply concatenates $col and $row
+					Default is false.<type full="cymapgt\core\application\spreadsheet\SpreadsheetProcessor\bool" namespace="cymapgt\core\application\spreadsheet\SpreadsheetProcessor" name="bool"/></param>
+    </docblock>
+    <parameter name="fontName" byreference="false" type="{unknown}"/>
+    <parameter name="fontSize" byreference="false" type="{unknown}"/>
+    <parameter name="col" byreference="false" type="integer" default="0"/>
+    <parameter name="row" byreference="false" type="integer" default="0"/>
+    <parameter name="isCoordinate" byreference="false" type="{unknown}" default="false"/>
+    <inline>
+      <comment value="getHighsetColumn returns letter (AZ), need to convert to num" line="562"/>
+      <comment value="Only fall in here if one of them is false (Which means don't do all cells)" line="574"/>
+      <comment value="freeup the memory" line="592"/>
+    </inline>
+  </method>
+  <method name="setColumnColor" start="602" end="614" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Sets the color of a column"/>
+      <param description="The column to set the color to" type="int" variable="$col"/>
+      <param description="The HTML based RGB color (e.g. 'FF0000' is red)" type="string" variable="$rgb"/>
+    </docblock>
+    <parameter name="col" byreference="false" type="{unknown}"/>
+    <parameter name="rgb" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="setColumnFont" start="624" end="636" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Set a column to certain font family and size"/>
+      <param description="The column to set the font on" type="int" variable="$col"/>
+      <param description="The font family name to set (e.g. 'Arial', 'Calibri', etc.)" type="string" variable="$fontName">The font name must be a valid font name to set</param>
+      <param description="The font size to set (e.g. 10, 12, etc.)" type="int" variable="$fontSize"/>
+    </docblock>
+    <parameter name="col" byreference="false" type="{unknown}"/>
+    <parameter name="fontName" byreference="false" type="{unknown}"/>
+    <parameter name="fontSize" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="setHyperlink" start="654" end="668" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Add a hyperlink to a cell">When adding a hyperlink to a cell it does not color and underline
+the cell as if you were in Excel, to emulate this, set $autoColor = true</description>
+      <param description="The column of the cell" type="int" variable="$col"/>
+      <param description="The row of the cell" type="int" variable="$row"/>
+      <param description="The link to set the cell to" type="string" variable="$link"/>
+      <param description="(OPTIONAL) If this is false, the function expects" type="object" variable="$isCoordinate">$col to be a numeric value. If this value is true
+		 			this funcition simply concatenates $col and $row
+					Default is false.<type full="cymapgt\core\application\spreadsheet\SpreadsheetProcessor\bool" namespace="cymapgt\core\application\spreadsheet\SpreadsheetProcessor" name="bool"/></param>
+      <param description="(OPTIONAL) True to emulate the coloring of a cell" type="object" variable="$autoColor">Default is false.<type full="cymapgt\core\application\spreadsheet\SpreadsheetProcessor\bool" namespace="cymapgt\core\application\spreadsheet\SpreadsheetProcessor" name="bool"/></param>
+    </docblock>
+    <parameter name="col" byreference="false" type="{unknown}"/>
+    <parameter name="row" byreference="false" type="{unknown}"/>
+    <parameter name="link" byreference="false" type="{unknown}"/>
+    <parameter name="isCoordinate" byreference="false" type="{unknown}" default="false"/>
+    <parameter name="autoColor" byreference="false" type="{unknown}" default="false"/>
+  </method>
+  <method name="setWorksheetName" start="679" end="686" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Set the current worksheet name">This will set the name of the worksheet. You can see the name of
+the worksheet at the bottom of the Excel window (normally on
+a new worksheet it just says 'Sheet1')</description>
+      <param description="The name of the sheet to set to" type="string" variable="$name"/>
+    </docblock>
+    <parameter name="name" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="setRowColor" start="694" end="704" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Set an entire row to a certain color"/>
+      <param description="The row to set the color to" type="int" variable="$row"/>
+      <param description="The HTML based RGB color (e.g. 'FF0000' is red)" type="string" variable="$rgb"/>
+    </docblock>
+    <parameter name="row" byreference="false" type="{unknown}"/>
+    <parameter name="rgb" byreference="false" type="{unknown}"/>
+    <inline>
+      <comment value="B" line="701"/>
+    </inline>
+  </method>
+  <method name="setCellTextDirection" start="718" end="743" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Sets the direction of text in a cell"/>
+      <param description="The column of the cell to set the text direction" type="int" variable="$col"/>
+      <param description="The row of the cell to set the text directoin" type="int" variable="$row"/>
+      <param description="The PHPExcelTextDirection to set" type="object" variable="$dir">
+        <type full="cymapgt\core\application\spreadsheet\SpreadsheetProcessor\PHPExcelWrapper\PHPExcelTextDirection" namespace="cymapgt\core\application\spreadsheet\SpreadsheetProcessor\PHPExcelWrapper" name="PHPExcelTextDirection"/>
+      </param>
+      <param description="The angle to set the text to" type="int" variable="$angle"/>
+      <param description="(OPTIONAL) If this is false, the function expects" type="object" variable="$isCoordinate">$col to be a numeric value. If this value is true
+		 						this funcition simply concatenates $col and $row
+								Default is false.<type full="cymapgt\core\application\spreadsheet\SpreadsheetProcessor\bool" namespace="cymapgt\core\application\spreadsheet\SpreadsheetProcessor" name="bool"/></param>
+    </docblock>
+    <parameter name="col" byreference="false" type="{unknown}"/>
+    <parameter name="row" byreference="false" type="{unknown}"/>
+    <parameter name="dir" byreference="false" type="{unknown}"/>
+    <parameter name="angle" byreference="false" type="{unknown}"/>
+    <parameter name="isCoordinate" byreference="false" type="{unknown}" default="false"/>
+  </method>
+  <method name="setRowFont" start="753" end="765" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Sets the font of a row"/>
+      <param description="The row to set the font to" type="int" variable="$row"/>
+      <param description="The font family name to set (e.g. 'Arial', 'Calibri', etc.)" type="string" variable="$fontName">The font name must be a valid font name to set</param>
+      <param description="The font size to set (e.g. 10, 12, etc.)" type="int" variable="$fontSize"/>
+    </docblock>
+    <parameter name="row" byreference="false" type="{unknown}"/>
+    <parameter name="fontName" byreference="false" type="{unknown}"/>
+    <parameter name="fontSize" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="writeCell" start="778" end="791" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Write data to a specific cell"/>
+      <param description="The column of the cell to write to" type="int" variable="$col"/>
+      <param description="The row of the cell to write to" type="int" variable="$row"/>
+      <param description="The data to write to the cell" type="mixed" variable="$data"/>
+      <param description="(OPTIONAL) If this is false, the function expects" type="object" variable="$isCoordinate">$col to be a numeric value. If this value is true
+		 			this funcition simply concatenates $col and $row
+					Default is false.<type full="cymapgt\core\application\spreadsheet\SpreadsheetProcessor\bool" namespace="cymapgt\core\application\spreadsheet\SpreadsheetProcessor" name="bool"/></param>
+    </docblock>
+    <parameter name="col" byreference="false" type="{unknown}"/>
+    <parameter name="row" byreference="false" type="{unknown}"/>
+    <parameter name="data" byreference="false" type="{unknown}"/>
+    <parameter name="isCoordinate" byreference="false" type="{unknown}" default="false"/>
+  </method>
+  <method name="write" start="798" end="810" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Writes a row of data an advances the current row pointer"/>
+      <param description="The data to write (can be an array)" type="mixed" variable="$data"/>
+    </docblock>
+    <parameter name="data" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="writeRow" start="818" end="853" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Writes data to a specific row"/>
+      <param description="The row to write the data to" type="int" variable="$row"/>
+      <param description="The data to write" type="mixed" variable="$data"/>
+    </docblock>
+    <parameter name="row" byreference="false" type="{unknown}"/>
+    <parameter name="data" byreference="false" type="{unknown}"/>
+  </method>
+  <extender full="cymapgt\core\application\spreadsheet\SpreadsheetProcessor\SpreadsheetProcessor" namespace="cymapgt\core\application\spreadsheet\SpreadsheetProcessor" name="SpreadsheetProcessor"/>
+</class>

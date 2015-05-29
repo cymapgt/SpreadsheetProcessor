@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="cymapgt\core\application\spreadsheet\SpreadsheetProcessor\PHPExcelWrapper\PHPExcelBorderType" namespace="cymapgt\core\application\spreadsheet\SpreadsheetProcessor\PHPExcelWrapper" name="PHPExcelBorderType" abstract="false" final="false" start="12" end="19">
+  <file path="/home/rhossis/NetBeansProjects/cymapgt/core/application/spreadsheet/src/SpreadsheetProcessor/PHPExcelWrapper" file="PHPExcelBorderType.php" realpath="/home/rhossis/NetBeansProjects/cymapgt/core/application/spreadsheet/src/SpreadsheetProcessor/PHPExcelWrapper/PHPExcelBorderType.php" size="504" time="2014-10-01T07:56:09+03:00" unixtime="1412139369" sha1="413d6e82e63ac10c1abc146871c5da817cea4880" relative="SpreadsheetProcessor/PHPExcelWrapper/PHPExcelBorderType.php"/>
+  <docblock>
+    <description compact="PHPExcelBorderType Codes for the border types supported by PHPExcel"/>
+    <category value="CYMAPGTReporting"/>
+    <package value="core.application.spreadsheet.SpreadsheetProcessor"/>
+    <copyright value="Copyright (c) 2012 CYMAP-GT"/>
+  </docblock>
+  <constant name="Left" value="'left'"/>
+  <constant name="Right" value="'right'"/>
+  <constant name="Top" value="'top'"/>
+  <constant name="Bottom" value="'bottom'"/>
+  <constant name="All" value="'allborders'"/>
+</class>

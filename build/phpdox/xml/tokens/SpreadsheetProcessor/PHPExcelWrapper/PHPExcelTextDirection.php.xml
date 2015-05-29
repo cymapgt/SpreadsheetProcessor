@@ -1,0 +1,93 @@
+<?xml version="1.0"?>
+<source xmlns="http://xml.phpdox.net/token">
+  <file xmlns="http://xml.phpdox.net/src" path="/home/rhossis/NetBeansProjects/cymapgt/core/application/spreadsheet/src/SpreadsheetProcessor/PHPExcelWrapper" file="PHPExcelTextDirection.php" realpath="/home/rhossis/NetBeansProjects/cymapgt/core/application/spreadsheet/src/SpreadsheetProcessor/PHPExcelWrapper/PHPExcelTextDirection.php" size="445" time="2014-10-01T07:56:09+03:00" unixtime="1412139369" sha1="2ff39d1620794b7e7f4ec0ce9eb31ee655bbbc34" relative="SpreadsheetProcessor/PHPExcelWrapper/PHPExcelTextDirection.php"/>
+  <line no="1">
+    <token name="T_OPEN_TAG">&lt;?php</token>
+  </line>
+  <line no="2">
+    <token name="T_NAMESPACE">namespace</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_STRING">cymapgt</token>
+    <token name="T_NS_SEPARATOR">\</token>
+    <token name="T_STRING">core</token>
+    <token name="T_NS_SEPARATOR">\</token>
+    <token name="T_STRING">application</token>
+    <token name="T_NS_SEPARATOR">\</token>
+    <token name="T_STRING">spreadsheet</token>
+    <token name="T_NS_SEPARATOR">\</token>
+    <token name="T_STRING">SpreadsheetProcessor</token>
+    <token name="T_NS_SEPARATOR">\</token>
+    <token name="T_STRING">PHPExcelWrapper</token>
+    <token name="T_PHPDOX_SEMICOLON">;</token>
+  </line>
+  <line no="3"/>
+  <line no="4">
+    <token name="T_DOC_COMMENT">/**</token>
+  </line>
+  <line no="5">
+    <token name="T_DOC_COMMENT">* PHPExcelTextDirection</token>
+  </line>
+  <line no="6">
+    <token name="T_DOC_COMMENT">* Store codes for excel text direction</token>
+  </line>
+  <line no="7">
+    <token name="T_DOC_COMMENT">*</token>
+  </line>
+  <line no="8">
+    <token name="T_DOC_COMMENT">* @category	CYMAPGTReporting</token>
+  </line>
+  <line no="9">
+    <token name="T_DOC_COMMENT">* @package	core.application.spreadsheet.SpreadsheetProcessor</token>
+  </line>
+  <line no="10">
+    <token name="T_DOC_COMMENT">* @copyright   Copyright (c) 2012 CYMAP-GT</token>
+  </line>
+  <line no="11">
+    <token name="T_DOC_COMMENT">*/</token>
+  </line>
+  <line no="12">
+    <token name="T_CLASS">class</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_STRING">PHPExcelTextDirection</token>
+  </line>
+  <line no="13">
+    <token name="T_PHPDOX_OPEN_CURLY">{</token>
+  </line>
+  <line no="14">
+    <token name="T_WHITESPACE">    </token>
+    <token name="T_CONST">const</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_STRING">Clockwise</token>
+    <token name="T_WHITESPACE">         </token>
+    <token name="T_PHPDOX_EQUAL">=</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_LNUMBER">0</token>
+    <token name="T_PHPDOX_SEMICOLON">;</token>
+  </line>
+  <line no="15">
+    <token name="T_WHITESPACE">    </token>
+    <token name="T_CONST">const</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_STRING">CounterClockwise</token>
+    <token name="T_WHITESPACE">  </token>
+    <token name="T_PHPDOX_EQUAL">=</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_LNUMBER">1</token>
+    <token name="T_PHPDOX_SEMICOLON">;</token>
+  </line>
+  <line no="16">
+    <token name="T_WHITESPACE">    </token>
+    <token name="T_CONST">const</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_STRING">Stacked</token>
+    <token name="T_WHITESPACE">           </token>
+    <token name="T_PHPDOX_EQUAL">=</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_LNUMBER">2</token>
+    <token name="T_PHPDOX_SEMICOLON">;</token>
+  </line>
+  <line no="17">
+    <token name="T_PHPDOX_CLOSE_CURLY">}</token>
+  </line>
+  <line no="18"/>
+</source>

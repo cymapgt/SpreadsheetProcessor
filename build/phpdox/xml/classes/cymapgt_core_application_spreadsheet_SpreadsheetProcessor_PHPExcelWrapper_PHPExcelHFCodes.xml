@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="cymapgt\core\application\spreadsheet\SpreadsheetProcessor\PHPExcelWrapper\PHPExcelHFCodes" namespace="cymapgt\core\application\spreadsheet\SpreadsheetProcessor\PHPExcelWrapper" name="PHPExcelHFCodes" abstract="false" final="false" start="14" end="45">
+  <file path="/home/rhossis/NetBeansProjects/cymapgt/core/application/spreadsheet/src/SpreadsheetProcessor/PHPExcelWrapper" file="PHPExcelHFCodes.php" realpath="/home/rhossis/NetBeansProjects/cymapgt/core/application/spreadsheet/src/SpreadsheetProcessor/PHPExcelWrapper/PHPExcelHFCodes.php" size="1847" time="2014-10-01T07:56:09+03:00" unixtime="1412139369" sha1="67ad48dfca1b512f780fe1fb69873a6b71c45db0" relative="SpreadsheetProcessor/PHPExcelWrapper/PHPExcelHFCodes.php"/>
+  <docblock>
+    <description compact="PHPExcelHFCodes This enables use of OpenXML standards for header codes. These can be used when declaring inline formatting on a worksheets Header/Footer"/>
+    <category value="CYMAPGTReporting"/>
+    <package value="core.application.spreadsheet.SpreadsheetProcessor"/>
+    <copyright value="Copyright (c) 2012 CYMAP-GT"/>
+  </docblock>
+  <constant name="HFCODE_LEFTSECTION" value="'&amp;L'"/>
+  <constant name="HFCODE_CURRENTPAGE" value="'&amp;P'"/>
+  <constant name="HFCODE_TOTALPAGES" value="'&amp;N'"/>
+  <constant name="HFCODE_FONTSIZE" value="'&amp;font size'"/>
+  <constant name="HFCODE_FONTCOLOR" value="'&amp;K'"/>
+  <constant name="HFCODE_STRIKETHROUGH" value="'&amp;S'"/>
+  <constant name="HFCODE_SUPERSCRIPT" value="'&amp;X'"/>
+  <constant name="HFCODE_SUBSCRIPT" value="'&amp;Y'"/>
+  <constant name="HFCODE_CENTERSECTION" value="'&amp;C'"/>
+  <constant name="HFCODE_DATE" value="'&amp;D'"/>
+  <constant name="HFCODE_TIME" value="'&amp;T'"/>
+  <constant name="HFCODE_PICTUREASBACKGROUND" value="'&amp;G'"/>
+  <constant name="HFCODE_TEXTSINGLEUNDERLINE" value="'&amp;U'"/>
+  <constant name="HFCODE_DOUBLEUNDERLINE" value="'&amp;E'"/>
+  <constant name="HFCODE_RIGHTSECTION" value="'&amp;R'"/>
+  <constant name="HFCODE_FILEPATH" value="'&amp;Z'"/>
+  <constant name="HFCODE_FILENAME" value="'&amp;F'"/>
+  <constant name="HFCODE_SHEETTABNAME" value="'&amp;A'"/>
+  <constant name="HFCODE_ADDTOPAGENO" value="'&amp;+'"/>
+  <constant name="HFCODE_SUBTRACTFROMPAGENO" value="'&amp;-'"/>
+  <constant name="HFCODE_FONTNAMEANDTYPE" value="'&amp;&quot;font name,font type&quot;'"/>
+  <constant name="HFCODE_BOLDFONTSTYLEA" value="'&amp;&quot;-,Bold&quot;'"/>
+  <constant name="HFCODE_BOLDFONTSTYLEB" value="'&amp;B'"/>
+  <constant name="HFCODE_REGULARFONTSTYLE" value="'&amp;&quot;-,Regular&quot;'"/>
+  <constant name="HFCODE_ITALICFONTSTYLEA" value="'&amp;&quot;-,Italic&quot;'"/>
+  <constant name="HFCODE_ITALICFONTSTYLEB" value="'&amp;I'"/>
+  <constant name="HFCODE_BOLDITALICFONTSTYLE" value="'&amp;&quot;-,Bold Italic&quot;'"/>
+  <constant name="HFCODE_OUTLINESTYLE" value="'&amp;0'"/>
+  <constant name="HFCODE_SHADOWSTYLE" value="'&amp;H'"/>
+</class>

@@ -1,0 +1,1315 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="cymapgt\core\application\spreadsheet\SpreadsheetProcessor\SpreadsheetProcessor" namespace="cymapgt\core\application\spreadsheet\SpreadsheetProcessor" name="SpreadsheetProcessor" abstract="false" final="false" start="28" end="1854">
+  <file path="/home/rhossis/NetBeansProjects/cymapgt/core/application/spreadsheet/src/SpreadsheetProcessor" file="SpreadsheetProcessor.php" realpath="/home/rhossis/NetBeansProjects/cymapgt/core/application/spreadsheet/src/SpreadsheetProcessor/SpreadsheetProcessor.php" size="75138" time="2014-10-01T07:56:09+03:00" unixtime="1412139369" sha1="01849f44ac2497b4004db0113a53ed010d806394" relative="SpreadsheetProcessor/SpreadsheetProcessor.php"/>
+  <docblock>
+    <description compact="PHPExcel_CachedObjectStorageFactory - This class encapsulates a number of key PHPExcel methods in order to make   creation and manipulation of files less verbose - It also provides an organized structure of managing temporary files on disk.">- Extends PHPExcel capability by adding a SWF filetype to the stack of file formats</description>
+    <category value="CYMAPGTReporting"/>
+    <package value="CYMAPGT_PHPExcelWrapper"/>
+    <copyright value="Copyright (c) 2012 CYMAP-GT"/>
+  </docblock>
+  <extends full="cymapgt\core\application\spreadsheet\SpreadsheetProcessor\PHPExcelWrapper" namespace="cymapgt\core\application\spreadsheet\SpreadsheetProcessor" name="PHPExcelWrapper"/>
+  <method name="newSheet" start="38" end="48" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="function createSheet()  =   This function allows one to add a new worksheet on the PHPExcel Object">Cyril Ogana - 2013-02-06</description>
+      <param description="Numeric index to where you want to add the worksheet" type="object" variable="$index">
+        <type full="cymapgt\core\application\spreadsheet\SpreadsheetProcessor\int/null" namespace="cymapgt\core\application\spreadsheet\SpreadsheetProcessor" name="int/null"/>
+      </param>
+      <return description="True on success" type="object">
+        <type full="cymapgt\core\application\spreadsheet\SpreadsheetProcessor\bool" namespace="cymapgt\core\application\spreadsheet\SpreadsheetProcessor" name="bool"/>
+      </return>
+      <access value="public"/>
+    </docblock>
+    <parameter name="index" byreference="false" type="{unknown}" default="null"/>
+    <inline>
+      <comment value="fetch the excel object" line="39"/>
+    </inline>
+  </method>
+  <method name="addSheet" start="60" end="75" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="function addSheet()  =   Append a worksheet object at a position in the worksheet">Cyril Ogana - 2013-02-06</description>
+      <param description="The worksheet object to be appended to the worksheet" type="object" variable="$wSheetObj"/>
+      <param description="Whether the worksheet is internal or external" type="object" variable="$external">
+        <type full="cymapgt\core\application\spreadsheet\SpreadsheetProcessor\bool" namespace="cymapgt\core\application\spreadsheet\SpreadsheetProcessor" name="bool"/>
+      </param>
+      <param description="Numeric index to where you want to add the worksheet" type="object" variable="$index">
+        <type full="cymapgt\core\application\spreadsheet\SpreadsheetProcessor\int/null" namespace="cymapgt\core\application\spreadsheet\SpreadsheetProcessor" name="int/null"/>
+      </param>
+      <return description="True on success" type="object">
+        <type full="cymapgt\core\application\spreadsheet\SpreadsheetProcessor\bool" namespace="cymapgt\core\application\spreadsheet\SpreadsheetProcessor" name="bool"/>
+      </return>
+      <access value="public"/>
+    </docblock>
+    <parameter name="wSheetObj" byreference="false" type="object">
+      <type full="PHPExcel_Worksheet" namespace="" name="PHPExcel_Worksheet"/>
+    </parameter>
+    <parameter name="external" byreference="false" type="{unknown}" default="false"/>
+    <parameter name="index" byreference="false" type="{unknown}" default="null"/>
+    <inline>
+      <comment value="fetch the excel object" line="61"/>
+    </inline>
+  </method>
+  <method name="getActiveSheet" start="84" end="88" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="function getActiveWorksheet()  =  Get the current active worksheet">Cyril Ogana - 2013-02-06</description>
+      <return description="Return PHPExcel worksheet object" type="object"/>
+      <access value="public"/>
+    </docblock>
+    <inline>
+      <comment value="fetch the excel object" line="85"/>
+    </inline>
+  </method>
+  <method name="setActiveSheet" start="99" end="112" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="function setActiveSheet() - Set the active sheet">Cyril Ogana - 2013-02-06</description>
+      <param description="index Get the index as integer or name" type="int"/>
+      <parm value="bool  byName   If true, run getSheetByName else run get by index"/>
+      <return description="True on success, false on failure" type="object">
+        <type full="cymapgt\core\application\spreadsheet\SpreadsheetProcessor\bool" namespace="cymapgt\core\application\spreadsheet\SpreadsheetProcessor" name="bool"/>
+      </return>
+      <access value="public"/>
+    </docblock>
+    <parameter name="index" byreference="false" type="integer" default="0"/>
+    <parameter name="byName" byreference="false" type="{unknown}" default="false"/>
+    <inline>
+      <comment value="fetch the excel object" line="100"/>
+    </inline>
+  </method>
+  <method name="getAllSheets" start="122" end="125" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="function getAllSheets()  =  Get all worksheets">Cyril Ogana - 2013-02-06</description>
+      <return description="Return array collection of the worksheets" type="array"/>
+      <access value="public"/>
+    </docblock>
+  </method>
+  <method name="getSheet" start="136" end="149" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="function getSheet()  =  Get a worksheet by name or its index">Cyril Ogana - 2013-02-06</description>
+      <param description="index Get the index as integer" type="int"/>
+      <parm value="bool  byName   If true, run getSheetByName else run get by index"/>
+      <return description="Return the phpexcel object or false if exception" type="object">
+        <type full="cymapgt\core\application\spreadsheet\SpreadsheetProcessor\object/faalse" namespace="cymapgt\core\application\spreadsheet\SpreadsheetProcessor" name="object/faalse"/>
+      </return>
+      <access value="public"/>
+    </docblock>
+    <parameter name="index" byreference="false" type="integer" default="0"/>
+    <parameter name="byName" byreference="false" type="{unknown}" default="false"/>
+    <inline>
+      <comment value="fetch the excel object" line="137"/>
+    </inline>
+  </method>
+  <method name="removeSheet" start="160" end="176" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="function removeSheet() - This method removes worksheets from the file">Cyril Ogana - 2014-05-04 - Fix the removing sheet by index number</description>
+      <param description="index Get the index as integer or name" type="int"/>
+      <parm value="bool  byName   If true, run getSheetByName else run get by index"/>
+      <return description="True on success, false on failure" type="object">
+        <type full="cymapgt\core\application\spreadsheet\SpreadsheetProcessor\bool" namespace="cymapgt\core\application\spreadsheet\SpreadsheetProcessor" name="bool"/>
+      </return>
+      <access value="public"/>
+    </docblock>
+    <parameter name="index" byreference="false" type="integer" default="0"/>
+    <parameter name="byName" byreference="false" type="{unknown}" default="false"/>
+    <inline>
+      <comment value="fetch the excel object" line="161"/>
+    </inline>
+  </method>
+  <method name="getSheetCount" start="185" end="189" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="function getSheetCount()">Cyril Ogana - 2013-02-06</description>
+      <return description="Number of worksheets in the workbook object" type="int"/>
+      <access value="public"/>
+    </docblock>
+    <inline>
+      <comment value="fetch the excel object" line="186"/>
+    </inline>
+  </method>
+  <method name="setProperties" start="202" end="243" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="function setProperties()  = This function sets one or more properties for a spreadsheet. If the                             filetype is not Excel5 or Excel2007, the function returns FALSE, else                             returns TRUE if the file property was successfully set                             which is primarily used to write to PDF, HTML and SWF Cyril Ogana - 2014-05-04    - Add array type hint"/>
+      <param description="This is an associative array, keys being the properties to be set" type="array" variable="$properties"/>
+      <return description="True on success, false on failure" type="object">
+        <type full="cymapgt\core\application\spreadsheet\SpreadsheetProcessor\bool" namespace="cymapgt\core\application\spreadsheet\SpreadsheetProcessor" name="bool"/>
+      </return>
+      <access value="public"/>
+    </docblock>
+    <parameter name="properties" byreference="false" type="array" default="null"/>
+    <inline>
+      <comment value="validate that if the property is custom, its index" line="204"/>
+      <comment value="validate that the $fileObj is a subclass or child of PHPExcel" line="209"/>
+      <comment value="iterate the properties array and excecute the property setter method" line="229"/>
+    </inline>
+  </method>
+  <method name="setHyperlink" start="258" end="284" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="function setHyperlink()  = This function handles adding a hyperlink to a cell. If the                            filetype is not Excel5 or Excel2007, the function returns FALSE, else Cyril Ogana - 2012-07-03"/>
+      <param description="This is the link to be created" type="string" variable="$link"/>
+      <param description="This is the tooltip to the link" type="string" variable="$tooltip"/>
+      <param description="This coordinate type takes &quot;TEXT&quot; or &quot;NUMERIC&quot; excel cell coords" type="string" variable="$coordType"/>
+      <param description="This if $coordType is &quot;TEXT&quot;, $cellCoord is used to locate cell" type="string" variable="$cellCoord"/>
+      <param description="This if $coordType is &quot;NUMERIC&quot;, $cellR is used to locate row" type="int" variable="$cellR"/>
+      <param description="This if $coordType is &quot;NUMERIC&quot;, $cellC is used to locate column" type="int" variable="$cellC"/>
+      <return description="True on success, false on failure" type="object">
+        <type full="cymapgt\core\application\spreadsheet\SpreadsheetProcessor\bool" namespace="cymapgt\core\application\spreadsheet\SpreadsheetProcessor" name="bool"/>
+      </return>
+      <access value="public"/>
+    </docblock>
+    <parameter name="link" byreference="false" type="{unknown}"/>
+    <parameter name="tooltip" byreference="false" type="{unknown}"/>
+    <parameter name="coordType" byreference="false" type="{unknown}"/>
+    <parameter name="cellCoord" byreference="false" type="string" default="''"/>
+    <parameter name="cellR" byreference="false" type="integer" default="1"/>
+    <parameter name="cellC" byreference="false" type="integer" default="0"/>
+    <inline>
+      <comment value="coordType mustbe TEXT or NUMERIC" line="259"/>
+      <comment value="Get the excel object" line="264"/>
+      <comment value="validate that the coords are integers" line="268"/>
+    </inline>
+  </method>
+  <method name="getHyperlink" start="296" end="322" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="function getHyperlink()  = This function fetches a hyperlink from a cell if already set Cyril Ogana - 2012-07-03"/>
+      <param description="This coordinate type takes &quot;TEXT&quot; or &quot;NUMERIC&quot; excel cell coords" type="string" variable="$coordType"/>
+      <param description="This if $coordType is &quot;TEXT&quot;, $cellCoord is used to locate cell" type="string" variable="$cellCoord"/>
+      <param description="This if $coordType is &quot;NUMERIC&quot;, $cellR is used to locate row" type="int" variable="$cellR"/>
+      <param description="This if $coordType is &quot;NUMERIC&quot;, $cellR is used to locate column" type="int" variable="$cellC"/>
+      <return description="Return array of hyperlink + tooltip or false if fail" type="mixed"/>
+      <access value="public"/>
+    </docblock>
+    <parameter name="coordType" byreference="false" type="{unknown}"/>
+    <parameter name="cellCoord" byreference="false" type="string" default="''"/>
+    <parameter name="cellR" byreference="false" type="integer" default="1"/>
+    <parameter name="cellC" byreference="false" type="integer" default="0"/>
+    <inline>
+      <comment value="coordType mustbe TEXT or NUMERIC" line="297"/>
+      <comment value="Get the excel object" line="302"/>
+      <comment value="validate that the coords are integers" line="306"/>
+    </inline>
+  </method>
+  <method name="setFirstPageNumber" start="334" end="358" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="function setFirstPageNumber()  = This sets the first page number of default worksheet to an integer value Cyril Ogana - 2014-05-02 - Add Exception handling"/>
+      <param description="This is the key of the worksheet, either associative or indexed" type="string" variable="$wSheetKey"/>
+      <param description="This is true if numeric key is expected, false if otherwise" type="string" variable="$keyIsIndex"/>
+      <param description="If $reset is true, we need to reset page number to default" type="object" variable="$reset">
+        <type full="cymapgt\core\application\spreadsheet\SpreadsheetProcessor\bool" namespace="cymapgt\core\application\spreadsheet\SpreadsheetProcessor" name="bool"/>
+      </param>
+      <param description="This is the integer value to which to set the page number" type="int" variable="$pageNumber"/>
+      <return description="True on success, false on failure" type="object">
+        <type full="cymapgt\core\application\spreadsheet\SpreadsheetProcessor\bool" namespace="cymapgt\core\application\spreadsheet\SpreadsheetProcessor" name="bool"/>
+      </return>
+      <access value="public"/>
+    </docblock>
+    <parameter name="wSheetKey" byreference="false" type="string" default="''"/>
+    <parameter name="keyIsIndex" byreference="false" type="{unknown}" default="false"/>
+    <parameter name="reset" byreference="false" type="{unknown}" default="true"/>
+    <parameter name="pageNumber" byreference="false" type="integer" default="1"/>
+  </method>
+  <method name="getFirstPageNumber" start="368" end="377" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="function getFirstPageNumber()  = Get the first page number of a wrk sheet Cyril Ogana - 2012-07-03"/>
+      <param description="This is the key of the worksheet, either associative or indexed" type="string" variable="$wSheetKey"/>
+      <param description="This is true if numeric key is expected, false if otherwise" type="string" variable="$keyIsIndex"/>
+      <return description="Return the first page number as int" type="integer"/>
+      <access value="public"/>
+    </docblock>
+    <parameter name="wSheetKey" byreference="false" type="string" default="''"/>
+    <parameter name="keyIsIndex" byreference="false" type="{unknown}" default="false"/>
+  </method>
+  <method name="setFitToHeight" start="389" end="400" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="function setFitToHeight()  = This fits a worksheet to height of the pages specified Cyril Ogana - 2012-07-18"/>
+      <param description="This is the key of the worksheet, either associative or indexed" type="string" variable="$wSheetKey"/>
+      <param description="This is true if numeric key is expected, false if otherwise" type="string" variable="$keyIsIndex"/>
+      <param description="This is the number of pages across which to spread the height" type="int" variable="$pValue"/>
+      <param description="This is TRUE to fit the worksheet to page once height set" type="object" variable="$pUpdate">
+        <type full="cymapgt\core\application\spreadsheet\SpreadsheetProcessor\bool" namespace="cymapgt\core\application\spreadsheet\SpreadsheetProcessor" name="bool"/>
+      </param>
+      <return description="True on success, false on failure" type="object">
+        <type full="cymapgt\core\application\spreadsheet\SpreadsheetProcessor\bool" namespace="cymapgt\core\application\spreadsheet\SpreadsheetProcessor" name="bool"/>
+      </return>
+      <access value="public"/>
+    </docblock>
+    <parameter name="wSheetKey" byreference="false" type="string" default="''"/>
+    <parameter name="keyIsIndex" byreference="false" type="{unknown}" default="false"/>
+    <parameter name="pValue" byreference="false" type="integer" default="1"/>
+    <parameter name="pUpdate" byreference="false" type="{unknown}" default="true"/>
+  </method>
+  <method name="getFitToHeight" start="410" end="420" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="function getFitToHeight()  = Get whether fit to height setting for the wrk sheet Cyril Ogana - 2012-07-19"/>
+      <param description="This is the key of the worksheet, either associative or indexed" type="string" variable="$wSheetKey"/>
+      <param description="This is true if numeric key is expected, false if otherwise" type="string" variable="$keyIsIndex"/>
+      <return description="return the value of fitToHeight" type="integer"/>
+      <access value="public"/>
+    </docblock>
+    <parameter name="wSheetKey" byreference="false" type="string" default="''"/>
+    <parameter name="keyIsIndex" byreference="false" type="{unknown}" default="false"/>
+  </method>
+  <method name="setFitToPage" start="431" end="442" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="function setFitToPage()  = This sets the fit to page number (to which #of pages print will adjust to) Cyril Ogana - 2012-07-18"/>
+      <param description="This is the key of the worksheet, either associative or indexed" type="string" variable="$wSheetKey"/>
+      <param description="This is true if numeric key is expected, false if otherwise" type="string" variable="$keyIsIndex"/>
+      <param description="This is the number of pages across which to spread the height" type="int" variable="$pValue"/>
+      <return description="True on success, false on failure" type="object">
+        <type full="cymapgt\core\application\spreadsheet\SpreadsheetProcessor\bool" namespace="cymapgt\core\application\spreadsheet\SpreadsheetProcessor" name="bool"/>
+      </return>
+      <access value="public"/>
+    </docblock>
+    <parameter name="wSheetKey" byreference="false" type="string" default="''"/>
+    <parameter name="keyIsIndex" byreference="false" type="{unknown}" default="false"/>
+    <parameter name="pValue" byreference="false" type="integer" default="1"/>
+  </method>
+  <method name="getFitToPage" start="452" end="462" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="function getFitToPage()  = Get the fit to page setting of a worksheet Cyril Ogana - 2012-07-19"/>
+      <param description="This is the key of the worksheet, either associative or indexed" type="string" variable="$wSheetKey"/>
+      <param description="This is true if numeric key is expected, false if otherwise" type="string" variable="$keyIsIndex"/>
+      <return description="Return the fitToPage value" type="integer"/>
+      <access value="public"/>
+    </docblock>
+    <parameter name="wSheetKey" byreference="false" type="string" default="''"/>
+    <parameter name="keyIsIndex" byreference="false" type="{unknown}" default="false"/>
+  </method>
+  <method name="setFitToWidth" start="475" end="487" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="function setFitToWidth()  = This fits a worksheet to width of a page Cyril Ogana - 2012-07-18"/>
+      <param description="This is the key of the worksheet, either associative or indexed" type="string" variable="$wSheetKey"/>
+      <param description="This is true if numeric key is expected, false if otherwise" type="string" variable="$keyIsIndex"/>
+      <param description="This is the number of pages across which to spread the width" type="int" variable="$pValue"/>
+      <param description="This is TRUE to fit the worksheet to page once width set" type="object" variable="$pUpdate">
+        <type full="cymapgt\core\application\spreadsheet\SpreadsheetProcessor\bool" namespace="cymapgt\core\application\spreadsheet\SpreadsheetProcessor" name="bool"/>
+      </param>
+      <return description="True on success, false on failure" type="object">
+        <type full="cymapgt\core\application\spreadsheet\SpreadsheetProcessor\bool" namespace="cymapgt\core\application\spreadsheet\SpreadsheetProcessor" name="bool"/>
+      </return>
+      <access value="public"/>
+    </docblock>
+    <parameter name="wSheetKey" byreference="false" type="string" default="''"/>
+    <parameter name="keyIsIndex" byreference="false" type="{unknown}" default="false"/>
+    <parameter name="pValue" byreference="false" type="integer" default="1"/>
+    <parameter name="pUpdate" byreference="false" type="{unknown}" default="true"/>
+  </method>
+  <method name="getFitToWidth" start="497" end="507" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="function getFitToWidth()  = Get whether fit to width setting for the wrk sheet Cyril Ogana - 2012-07-19"/>
+      <param description="This is the key of the worksheet, either associative or indexed" type="string" variable="$wSheetKey"/>
+      <param description="This is true if numeric key is expected, false if otherwise" type="string" variable="$keyIsIndex"/>
+      <return description="return the value of fitToWidth" type="integer"/>
+      <access value="public"/>
+    </docblock>
+    <parameter name="wSheetKey" byreference="false" type="string" default="''"/>
+    <parameter name="keyIsIndex" byreference="false" type="{unknown}" default="false"/>
+  </method>
+  <method name="setHorizontalCentered" start="518" end="529" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="function setHorizontalCentered()  = This ensures that pages are horizontal centered for printing Cyril Ogana - 2012-07-18"/>
+      <param description="This is the key of the worksheet, either associative or indexed" type="string" variable="$wSheetKey"/>
+      <param description="This is true if numeric key is expected, false if otherwise" type="string" variable="$keyIsIndex"/>
+      <param description="This is the number of pages across which to spread the height" type="object" variable="$value">
+        <type full="cymapgt\core\application\spreadsheet\SpreadsheetProcessor\bool" namespace="cymapgt\core\application\spreadsheet\SpreadsheetProcessor" name="bool"/>
+      </param>
+      <return description="True on success, false on failure" type="object">
+        <type full="cymapgt\core\application\spreadsheet\SpreadsheetProcessor\bool" namespace="cymapgt\core\application\spreadsheet\SpreadsheetProcessor" name="bool"/>
+      </return>
+      <access value="public"/>
+    </docblock>
+    <parameter name="wSheetKey" byreference="false" type="string" default="''"/>
+    <parameter name="keyIsIndex" byreference="false" type="{unknown}" default="false"/>
+    <parameter name="value" byreference="false" type="{unknown}" default="false"/>
+  </method>
+  <method name="getHorizontalCentered" start="539" end="549" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="function getHorizontalCentered()  = Get horizontal centering configuration for a worksheet obj Cyril Ogana - 2012-07-19"/>
+      <param description="This is the key of the worksheet, either associative or indexed" type="string" variable="$wSheetKey"/>
+      <param description="This is true if numeric key is expected, false if otherwise" type="string" variable="$keyIsIndex"/>
+      <return description="true if is on, false if off" type="object">
+        <type full="cymapgt\core\application\spreadsheet\SpreadsheetProcessor\bool" namespace="cymapgt\core\application\spreadsheet\SpreadsheetProcessor" name="bool"/>
+      </return>
+      <access value="public"/>
+    </docblock>
+    <parameter name="wSheetKey" byreference="false" type="string" default="''"/>
+    <parameter name="keyIsIndex" byreference="false" type="{unknown}" default="false"/>
+  </method>
+  <method name="setOrientation" start="560" end="579" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="function setOrientation()  = This sets the page orientation for the worksheet for print Cyril Ogana - 2012-07-18"/>
+      <param description="This is the key of the worksheet, either associative or indexed" type="string" variable="$wSheetKey"/>
+      <param description="This is true if numeric key is expected, false if otherwise" type="string" variable="$keyIsIndex"/>
+      <param description="Orientation is default, landscape or portrait" type="string" variable="$orientation"/>
+      <return description="True on success, false on failure" type="object">
+        <type full="cymapgt\core\application\spreadsheet\SpreadsheetProcessor\bool" namespace="cymapgt\core\application\spreadsheet\SpreadsheetProcessor" name="bool"/>
+      </return>
+      <access value="public"/>
+    </docblock>
+    <parameter name="wSheetKey" byreference="false" type="string" default="''"/>
+    <parameter name="keyIsIndex" byreference="false" type="{unknown}" default="false"/>
+    <parameter name="orientation" byreference="false" type="string" default="'default'"/>
+    <inline>
+      <todo value="More validation on this wrappers setter methods" line="572"/>
+    </inline>
+  </method>
+  <method name="getOrientation" start="589" end="595" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="function getOrientation()  = Get the print orientation of the worksheet Cyril Ogana - 2012-07-19"/>
+      <param description="This is the key of the worksheet, either associative or indexed" type="string" variable="$wSheetKey"/>
+      <param description="This is true if numeric key is expected, false if otherwise" type="string" variable="$keyIsIndex"/>
+      <return description="returns DEFAULT, LANDSCAPE or PORTRAIT" type="string"/>
+      <access value="public"/>
+    </docblock>
+    <parameter name="wSheetKey" byreference="false" type="string" default="''"/>
+    <parameter name="keyIsIndex" byreference="false" type="{unknown}" default="false"/>
+  </method>
+  <method name="setPaperSize" start="607" end="624" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="function setPaperSize()  = This sets the page orientation for the worksheet for print Cyril Ogana - 2012-07-18"/>
+      <param description="This is the key of the worksheet, either associative or indexed" type="string" variable="$wSheetKey"/>
+      <param description="This is true if numeric key is expected, false if otherwise" type="string" variable="$keyIsIndex"/>
+      <param description="This is the papersize value (OpenXML format ) taken from" type="string" variable="$pValue">Office Open XML Part 4 - Markup Language Reference, page 1988</param>
+      <return description="True on success, false on failure" type="object">
+        <type full="cymapgt\core\application\spreadsheet\SpreadsheetProcessor\bool" namespace="cymapgt\core\application\spreadsheet\SpreadsheetProcessor" name="bool"/>
+      </return>
+      <access value="public"/>
+    </docblock>
+    <parameter name="wSheetKey" byreference="false" type="string" default="''"/>
+    <parameter name="keyIsIndex" byreference="false" type="{unknown}" default="false"/>
+    <parameter name="pValue" byreference="false" type="string" default="'LETTER'"/>
+  </method>
+  <method name="getPaperSize" start="634" end="644" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="function getPaperSize()  = Get the paper size of the worksheet pages Cyril Ogana - 2012-07-19"/>
+      <param description="This is the key of the worksheet, either associative or indexed" type="string" variable="$wSheetKey"/>
+      <param description="This is true if numeric key is expected, false if otherwise" type="string" variable="$keyIsIndex"/>
+      <return description="returns an integer representing one of the PAPERSIZE_*** constants" type="int"/>
+      <access value="public"/>
+    </docblock>
+    <parameter name="wSheetKey" byreference="false" type="string" default="''"/>
+    <parameter name="keyIsIndex" byreference="false" type="{unknown}" default="false"/>
+  </method>
+  <method name="setPrintArea" start="662" end="732" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="function setPrintArea()  = This sets a certain region as the print area using worksheet range coordinates Cyril Ogana - 2012-07-18"/>
+      <param description="This is the key of the worksheet, either associative or indexed" type="string" variable="$wSheetKey"/>
+      <param description="This is true if numeric key is expected, false if otherwise" type="string" variable="$keyIsIndex"/>
+      <param type="object" variable="$isAdd">
+        <type full="cymapgt\core\application\spreadsheet\SpreadsheetProcessor\bool" namespace="cymapgt\core\application\spreadsheet\SpreadsheetProcessor" name="bool"/>
+      </param>
+      <param description="The cell coordinates as excel range e.g A1:B10" type="string" variable="$cellCoord"/>
+      <param description="The start row coordinate as integer" type="int" variable="$cellR1"/>
+      <param description="The start col coordinate as integer" type="int" variable="$cellC1"/>
+      <param description="The end row coordinate as integer" type="int" variable="$cellR2"/>
+      <param description="The end col coordinate as integer" type="int" variable="$cellC2"/>
+      <param description="Index argument" type="int" variable="$index"/>
+      <param description="O = Overwrite, I = Insert" type="string" variable="$method"/>
+      <return description="true/false" type="object">
+        <type full="cymapgt\core\application\spreadsheet\SpreadsheetProcessor\bool" namespace="cymapgt\core\application\spreadsheet\SpreadsheetProcessor" name="bool"/>
+      </return>
+      <access value="public"/>
+    </docblock>
+    <parameter name="coordType" byreference="false" type="{unknown}"/>
+    <parameter name="wSheetKey" byreference="false" type="string" default="''"/>
+    <parameter name="keyIsIndex" byreference="false" type="{unknown}" default="false"/>
+    <parameter name="isAdd" byreference="false" type="{unknown}" default="false"/>
+    <parameter name="cellCoord" byreference="false" type="string" default="''"/>
+    <parameter name="cellR1" byreference="false" type="integer" default="1"/>
+    <parameter name="cellC1" byreference="false" type="integer" default="0"/>
+    <parameter name="cellR2" byreference="false" type="integer" default="1"/>
+    <parameter name="cellC2" byreference="false" type="integer" default="0"/>
+    <parameter name="index" byreference="false" type="integer" default="0"/>
+    <parameter name="method" byreference="false" type="string" default="'O'"/>
+    <inline>
+      <comment value="The page setup printarea methods to use (add, or set)" line="688"/>
+      <comment value="coordType mustbe TEXT or NUMERIC" line="702"/>
+      <comment value="validate that the coords are integers" line="708"/>
+    </inline>
+  </method>
+  <method name="getPrintArea" start="744" end="766" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="function getPrintArea()  = Get the print area settings for the worksheet Cyril Ogana - 2012-07-19"/>
+      <param description="This is the key of the worksheet, either associative or indexed" type="string" variable="$wSheetKey"/>
+      <param description="This is true if numeric key is expected, false if otherwise" type="string" variable="$keyIsIndex"/>
+      <param description="The index of print area is several exist" type="int" variable="$index"/>
+      <param description="If true,only check if it exists and return bool, else return int" type="object" variable="$oCheck">
+        <type full="cymapgt\core\application\spreadsheet\SpreadsheetProcessor\bool" namespace="cymapgt\core\application\spreadsheet\SpreadsheetProcessor" name="bool"/>
+      </param>
+      <return description="depending on oCheck, returns bool or returns a string containing the print ranges" type="mixed"/>
+      <access value="public"/>
+    </docblock>
+    <parameter name="wSheetKey" byreference="false" type="string" default="''"/>
+    <parameter name="keyIsIndex" byreference="false" type="{unknown}" default="false"/>
+    <parameter name="index" byreference="false" type="integer" default="0"/>
+    <parameter name="oCheck" byreference="false" type="{unknown}" default="false"/>
+  </method>
+  <method name="clearPrintArea" start="777" end="791" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="function clearPrintArea()  = Clear a print area Cyril Ogana - 2012-07-19"/>
+      <param description="This is the key of the worksheet, either associative or indexed" type="string" variable="$wSheetKey"/>
+      <param description="This is true if numeric key is expected, false if otherwise" type="string" variable="$keyIsIndex"/>
+      <param description="The index of print area is several exist. if 0, all will be cleared" type="int" variable="$index"/>
+      <return description="returns pagesetup obj" type="object">
+        <type full="cymapgt\core\application\spreadsheet\SpreadsheetProcessor\obj" namespace="cymapgt\core\application\spreadsheet\SpreadsheetProcessor" name="obj"/>
+      </return>
+      <access value="public"/>
+    </docblock>
+    <parameter name="wSheetKey" byreference="false" type="string" default="''"/>
+    <parameter name="keyIsIndex" byreference="false" type="{unknown}" default="false"/>
+    <parameter name="index" byreference="false" type="integer" default="0"/>
+  </method>
+  <method name="setRepeatCols" start="806" end="840" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="function setRepeatCols()  = Set columns to be repeated on each page of the report Cyril Ogana - 2012-07-18"/>
+      <param description="This is the key of the worksheet, either associative or indexed" type="string" variable="$wSheetKey"/>
+      <param description="This is true if numeric key is expected, false if otherwise" type="string" variable="$keyIsIndex"/>
+      <param description="RepeatType = &quot;ARRAY&quot; or &quot;STARTEND&quot;" type="string" variable="$repeatType"/>
+      <param description="Array whose first and second indices $a[0] and $a[1] give start &amp; end" type="array" variable="$cellArray">columns to be repeated</param>
+      <param description="The start col coordinate as integer or string" type="string" variable="$cellC1"/>
+      <param description="The end col coordinate as integer or string" type="string" variable="$cellC2"/>
+      <return description="True on success, false on failure" type="object">
+        <type full="cymapgt\core\application\spreadsheet\SpreadsheetProcessor\bool" namespace="cymapgt\core\application\spreadsheet\SpreadsheetProcessor" name="bool"/>
+      </return>
+      <access value="public"/>
+    </docblock>
+    <parameter name="wSheetKey" byreference="false" type="string" default="''"/>
+    <parameter name="keyIsIndex" byreference="false" type="{unknown}" default="false"/>
+    <parameter name="repeatType" byreference="false" type="string" default="''"/>
+    <parameter name="cellArray" byreference="false" type="{unknown}" default="null"/>
+    <parameter name="cellC1" byreference="false" type="string" default="''"/>
+    <parameter name="cellC2" byreference="false" type="string" default="''"/>
+  </method>
+  <method name="getRepeatCols" start="851" end="869" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="function getRepeatCols()  = Get the columns to repeat settings (left &amp; left by start and end) Cyril Ogana - 2012-07-19"/>
+      <param description="This is the key of the worksheet, either associative or indexed" type="string" variable="$wSheetKey"/>
+      <param description="This is true if numeric key is expected, false if otherwise" type="string" variable="$keyIsIndex"/>
+      <param description="If true,only check if it exists and return bool, else return array" type="object" variable="$oCheck">
+        <type full="cymapgt\core\application\spreadsheet\SpreadsheetProcessor\bool" namespace="cymapgt\core\application\spreadsheet\SpreadsheetProcessor" name="bool"/>
+      </param>
+      <return description="If oCheck is true returns bool else returns an array of the cols marked as repeatable" type="object">
+        <type full="cymapgt\core\application\spreadsheet\SpreadsheetProcessor\array/bool" namespace="cymapgt\core\application\spreadsheet\SpreadsheetProcessor" name="array/bool"/>
+      </return>
+      <access value="public"/>
+    </docblock>
+    <parameter name="wSheetKey" byreference="false" type="string" default="''"/>
+    <parameter name="keyIsIndex" byreference="false" type="{unknown}" default="false"/>
+    <parameter name="oCheck" byreference="false" type="{unknown}" default="false"/>
+  </method>
+  <method name="setRepeatRows" start="884" end="924" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="function setRepeatRows()  = Set rows to be repeated on each page of the report Cyril Ogana - 2012-07-18"/>
+      <param description="This is the key of the worksheet, either associative or indexed" type="string" variable="$wSheetKey"/>
+      <param description="This is true if numeric key is expected, false if otherwise" type="string" variable="$keyIsIndex"/>
+      <param description="RepeatType = &quot;ARRAY&quot; or &quot;STARTEND&quot;" type="string" variable="$repeatType"/>
+      <param description="Array whose first and second indices $a[0] and $a[1] give start &amp; end" type="array" variable="$cellArray">rows to be repeated</param>
+      <param description="The start row coordinate as integer" type="string" variable="$cellR1"/>
+      <param description="The end row coordinate as integer" type="string" variable="$cellR2"/>
+      <return description="True on success, false on failure" type="object">
+        <type full="cymapgt\core\application\spreadsheet\SpreadsheetProcessor\bool" namespace="cymapgt\core\application\spreadsheet\SpreadsheetProcessor" name="bool"/>
+      </return>
+      <access value="public"/>
+    </docblock>
+    <parameter name="wSheetKey" byreference="false" type="string" default="''"/>
+    <parameter name="keyIsIndex" byreference="false" type="{unknown}" default="false"/>
+    <parameter name="repeatType" byreference="false" type="string" default="''"/>
+    <parameter name="cellArray" byreference="false" type="{unknown}" default="null"/>
+    <parameter name="cellR1" byreference="false" type="integer" default="1"/>
+    <parameter name="cellR2" byreference="false" type="integer" default="1"/>
+  </method>
+  <method name="getRepeatRows" start="935" end="953" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="function getRepeatRows()  = Get the rows to repeat settings (top &amp; top by start and end) Cyril Ogana - 2012-07-19"/>
+      <param description="This is the key of the worksheet, either associative or indexed" type="string" variable="$wSheetKey"/>
+      <param description="This is true if numeric key is expected, false if otherwise" type="string" variable="$keyIsIndex"/>
+      <param description="If true,only check if it exists and return bool, else return array" type="object" variable="$oCheck">
+        <type full="cymapgt\core\application\spreadsheet\SpreadsheetProcessor\bool" namespace="cymapgt\core\application\spreadsheet\SpreadsheetProcessor" name="bool"/>
+      </param>
+      <return description="If oCheck is true, returns bool else returns an array of the rows marked as repeatable" type="object">
+        <type full="cymapgt\core\application\spreadsheet\SpreadsheetProcessor\array/bool" namespace="cymapgt\core\application\spreadsheet\SpreadsheetProcessor" name="array/bool"/>
+      </return>
+      <access value="public"/>
+    </docblock>
+    <parameter name="wSheetKey" byreference="false" type="string" default="''"/>
+    <parameter name="keyIsIndex" byreference="false" type="{unknown}" default="false"/>
+    <parameter name="oCheck" byreference="false" type="{unknown}" default="false"/>
+  </method>
+  <method name="setScale" start="966" end="985" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="function setScale()  = Print scaling. Valid values range from 10 to 400 This setting is overridden                        when fitToWidth and/or fitToHeight are in use Cyril Ogana - 2012-07-19"/>
+      <param description="This is the key of the worksheet, either associative or indexed" type="string" variable="$wSheetKey"/>
+      <param description="This is true if numeric key is expected, false if otherwise" type="string" variable="$keyIsIndex"/>
+      <param description="The scale value as integer" type="int" variable="$pValue"/>
+      <param description="Update flag, true or false" type="object" variable="$pUpdate">
+        <type full="cymapgt\core\application\spreadsheet\SpreadsheetProcessor\bool" namespace="cymapgt\core\application\spreadsheet\SpreadsheetProcessor" name="bool"/>
+      </param>
+      <return description="True on success, false on failure" type="object">
+        <type full="cymapgt\core\application\spreadsheet\SpreadsheetProcessor\bool" namespace="cymapgt\core\application\spreadsheet\SpreadsheetProcessor" name="bool"/>
+      </return>
+      <access value="public"/>
+    </docblock>
+    <parameter name="wSheetKey" byreference="false" type="string" default="''"/>
+    <parameter name="keyIsIndex" byreference="false" type="{unknown}" default="false"/>
+    <parameter name="pValue" byreference="false" type="integer" default="100"/>
+    <parameter name="pUpdate" byreference="false" type="{unknown}" default="false"/>
+  </method>
+  <method name="getScale" start="995" end="1004" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="function getScale()  = Get the scale set for setting worksheet content on a page Cyril Ogana - 2012-07-19"/>
+      <param description="This is the key of the worksheet, either associative or indexed" type="string" variable="$wSheetKey"/>
+      <param description="This is true if numeric key is expected, false if otherwise" type="string" variable="$keyIsIndex"/>
+      <return description="Returns an integer value between 10 and 100" type="int"/>
+      <access value="public"/>
+    </docblock>
+    <parameter name="wSheetKey" byreference="false" type="string" default="''"/>
+    <parameter name="keyIsIndex" byreference="false" type="{unknown}" default="false"/>
+  </method>
+  <method name="setVerticalCentered" start="1015" end="1030" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="function setVerticalCentered()  = This function sets the vertical centering of data on page Cyril Ogana - 2012-07-19"/>
+      <param description="This is the key of the worksheet, either associative or indexed" type="string" variable="$wSheetKey"/>
+      <param description="This is true if numeric key is expected, false if otherwise" type="string" variable="$keyIsIndex"/>
+      <param description="True to activate the centering , false to deactivate it" type="object" variable="$value">
+        <type full="cymapgt\core\application\spreadsheet\SpreadsheetProcessor\bool" namespace="cymapgt\core\application\spreadsheet\SpreadsheetProcessor" name="bool"/>
+      </param>
+      <return description="True on success, false on failure" type="object">
+        <type full="cymapgt\core\application\spreadsheet\SpreadsheetProcessor\bool" namespace="cymapgt\core\application\spreadsheet\SpreadsheetProcessor" name="bool"/>
+      </return>
+      <access value="public"/>
+    </docblock>
+    <parameter name="wSheetKey" byreference="false" type="string" default="''"/>
+    <parameter name="keyIsIndex" byreference="false" type="{unknown}" default="false"/>
+    <parameter name="value" byreference="false" type="{unknown}" default="false"/>
+  </method>
+  <method name="getVerticalCentered" start="1041" end="1047" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="function getVerticalCentered()  = Check if vertical centering of page content is set to true Cyril Ogana - 2012-07-19"/>
+      <param description="This is the key of the worksheet, either associative or indexed" type="string" variable="$wSheetKey"/>
+      <param description="This is true if numeric key is expected, false if otherwise" type="string" variable="$keyIsIndex"/>
+      <return description="Returns a boolean true or false" type="object">
+        <type full="cymapgt\core\application\spreadsheet\SpreadsheetProcessor\bool" namespace="cymapgt\core\application\spreadsheet\SpreadsheetProcessor" name="bool"/>
+      </return>
+      <access value="public"/>
+    </docblock>
+    <parameter name="wSheetKey" byreference="false" type="string" default="''"/>
+    <parameter name="keyIsIndex" byreference="false" type="{unknown}" default="false"/>
+  </method>
+  <method name="getWorksheet" start="1057" end="1077" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="function getWorksheet()  =  Returns a PHPExcel_Worksheet object as per params passed Cyril Ogana - 2012-07-18"/>
+      <param description="This is the key of the worksheet, either associative or indexed" type="string" variable="$wSheetKey"/>
+      <param description="This is true if numeric key is expected, false if otherwise" type="string" variable="$keyIsIndex"/>
+      <return description="or false     worksheet Obj on success, false on failure" type="object"/>
+      <access value="public"/>
+    </docblock>
+    <parameter name="wSheetKey" byreference="false" type="string" default="''"/>
+    <parameter name="keyIsIndex" byreference="false" type="{unknown}" default="false"/>
+    <inline>
+      <comment value="if it is csv, can't get worksheet" line="1058"/>
+      <comment value="all the same, PhpXl might not be set" line="1062"/>
+    </inline>
+  </method>
+  <method name="setMargin" start="1089" end="1167" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="function setMargin()  =  Sets setting for one or several page margins Cyril Ogana - 2012-07-19"/>
+      <param description="This is the key of the worksheet, either associative or indexed" type="string" variable="$wSheetKey"/>
+      <param description="This is true if numeric key is expected, false if otherwise" type="string" variable="$keyIsIndex"/>
+      <param description="If 0, set all. If string, set specified. If array, set indicated" type="mixed" variable="$margin"/>
+      <param description="This is the value of the margin. Default = 0.75 like in excel" type="object" variable="$pValue">
+        <type full="cymapgt\core\application\spreadsheet\SpreadsheetProcessor\double" namespace="cymapgt\core\application\spreadsheet\SpreadsheetProcessor" name="double"/>
+      </param>
+      <return type="object">
+        <type full="cymapgt\core\application\spreadsheet\SpreadsheetProcessor\obj" namespace="cymapgt\core\application\spreadsheet\SpreadsheetProcessor" name="obj"/>
+      </return>
+      <access value="public"/>
+    </docblock>
+    <parameter name="wSheetKey" byreference="false" type="string" default="''"/>
+    <parameter name="keyIsIndex" byreference="false" type="{unknown}" default="false"/>
+    <parameter name="margin" byreference="false" type="string" default="'top'"/>
+    <parameter name="pValue" byreference="false" type="float" default="0.75"/>
+    <inline>
+      <comment value="if margin is string, set only the particular part e.g. 'top'" line="1104"/>
+      <comment value="if margin is 0, set all margins" line="1117"/>
+      <comment value="if marign is an array, set those in associative array e.g. $margin['top']" line="1139"/>
+    </inline>
+  </method>
+  <method name="getMargin" start="1178" end="1229" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="function getMargin()  =  Gets setting for one or several page margins Cyril Ogana - 2012-07-19"/>
+      <param description="This is the key of the worksheet, either associative or indexed" type="string" variable="$wSheetKey"/>
+      <param description="This is true if numeric key is expected, false if otherwise" type="string" variable="$keyIsIndex"/>
+      <param description="If 0, set all. If string, set specified. If array, set indicated" type="mixed" variable="$margin"/>
+      <return description="False if error, array or string if margin found" type="mixed"/>
+      <access value="public"/>
+    </docblock>
+    <parameter name="wSheetKey" byreference="false" type="string" default="''"/>
+    <parameter name="keyIsIndex" byreference="false" type="{unknown}" default="false"/>
+    <parameter name="margin" byreference="false" type="string" default="'top'"/>
+  </method>
+  <method name="setHFAlignWithMargins" start="1241" end="1256" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="function setHFAlignWithMargins() Set align for header/footer with margins"/>
+      <param description="This is the key of the worksheet, either associative or indexed" type="string" variable="$wSheetKey"/>
+      <param description="This is true if numeric key is expected, false if otherwise*" type="string" variable="$keyIsIndex"/>
+      <param type="object" variable="$pValue">
+        <type full="cymapgt\core\application\spreadsheet\SpreadsheetProcessor\bool" namespace="cymapgt\core\application\spreadsheet\SpreadsheetProcessor" name="bool"/>
+      </param>
+      <return type="object">
+        <type full="cymapgt\core\application\spreadsheet\SpreadsheetProcessor\bool" namespace="cymapgt\core\application\spreadsheet\SpreadsheetProcessor" name="bool"/>
+      </return>
+      <return type="object">
+        <type full="cymapgt\core\application\spreadsheet\SpreadsheetProcessor\obj" namespace="cymapgt\core\application\spreadsheet\SpreadsheetProcessor" name="obj"/>
+      </return>
+    </docblock>
+    <parameter name="wSheetKey" byreference="false" type="string" default="''"/>
+    <parameter name="keyIsIndex" byreference="false" type="{unknown}" default="false"/>
+    <parameter name="pValue" byreference="false" type="{unknown}" default="true"/>
+  </method>
+  <method name="getHFAlignWithMargins" start="1266" end="1276" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="function getHFAlignWithMargins() Get align for header/footer with margins"/>
+      <param description="This is the key of the worksheet, either associative or indexed" type="string" variable="$wSheetKey"/>
+      <param description="This is true if numeric key is expected, false if otherwise*" type="string" variable="$keyIsIndex"/>
+      <return type="object">
+        <type full="cymapgt\core\application\spreadsheet\SpreadsheetProcessor\bool" namespace="cymapgt\core\application\spreadsheet\SpreadsheetProcessor" name="bool"/>
+      </return>
+    </docblock>
+    <parameter name="wSheetKey" byreference="false" type="string" default="''"/>
+    <parameter name="keyIsIndex" byreference="false" type="{unknown}" default="false"/>
+  </method>
+  <method name="setHFDifferentFirst" start="1286" end="1301" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="function setHFDifferentFirst() Toggle the flag to set different first page header on worksheet page"/>
+      <param description="This is the key of the worksheet, either associative or indexed" type="string" variable="$wSheetKey"/>
+      <param description="This is true if numeric key is expected, false if otherwise&#9; * @param  bool    $pValue" type="string" variable="$keyIsIndex"/>
+      <return type="object">
+        <type full="cymapgt\core\application\spreadsheet\SpreadsheetProcessor\obj" namespace="cymapgt\core\application\spreadsheet\SpreadsheetProcessor" name="obj"/>
+      </return>
+    </docblock>
+    <parameter name="wSheetKey" byreference="false" type="string" default="''"/>
+    <parameter name="keyIsIndex" byreference="false" type="{unknown}" default="false"/>
+    <parameter name="pValue" byreference="false" type="{unknown}" default="true"/>
+  </method>
+  <method name="getHFDifferentFirst" start="1311" end="1321" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="function getHFDifferentFirst() Get flag for whether different first page section is set for header/footer is set"/>
+      <param description="This is the key of the worksheet, either associative or indexed" type="string" variable="$wSheetKey"/>
+      <param description="This is true if numeric key is expected, false if otherwise*" type="string" variable="$keyIsIndex"/>
+      <return type="object">
+        <type full="cymapgt\core\application\spreadsheet\SpreadsheetProcessor\bool" namespace="cymapgt\core\application\spreadsheet\SpreadsheetProcessor" name="bool"/>
+      </return>
+    </docblock>
+    <parameter name="wSheetKey" byreference="false" type="string" default="''"/>
+    <parameter name="keyIsIndex" byreference="false" type="{unknown}" default="false"/>
+  </method>
+  <method name="setHFDifferentOddEven" start="1333" end="1347" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="function setHFDifferentOddEven() Toggle the flag to set different odd and even page numbers on worksheet pages"/>
+      <param description="This is the key of the worksheet, either associative or indexed" type="string" variable="$wSheetKey"/>
+      <param description="This is true if numeric key is expected, false if otherwise" type="string" variable="$keyIsIndex"/>
+      <param type="object" variable="$pValue">
+        <type full="cymapgt\core\application\spreadsheet\SpreadsheetProcessor\bool" namespace="cymapgt\core\application\spreadsheet\SpreadsheetProcessor" name="bool"/>
+      </param>
+      <return type="object">
+        <type full="cymapgt\core\application\spreadsheet\SpreadsheetProcessor\bool" namespace="cymapgt\core\application\spreadsheet\SpreadsheetProcessor" name="bool"/>
+      </return>
+    </docblock>
+    <parameter name="wSheetKey" byreference="false" type="string" default="''"/>
+    <parameter name="keyIsIndex" byreference="false" type="{unknown}" default="false"/>
+    <parameter name="pValue" byreference="false" type="{unknown}" default="true"/>
+  </method>
+  <method name="getHFDifferentOddEven" start="1357" end="1367" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="function getHFDifferentOddEven() Get flag for whether different first odd &amp; even page section is set for header/footer is set"/>
+      <param description="This is the key of the worksheet, either associative or indexed" type="string" variable="$wSheetKey"/>
+      <param description="This is true if numeric key is expected, false if otherwise*" type="string" variable="$keyIsIndex"/>
+      <return type="object">
+        <type full="cymapgt\core\application\spreadsheet\SpreadsheetProcessor\bool" namespace="cymapgt\core\application\spreadsheet\SpreadsheetProcessor" name="bool"/>
+      </return>
+    </docblock>
+    <parameter name="wSheetKey" byreference="false" type="string" default="''"/>
+    <parameter name="keyIsIndex" byreference="false" type="{unknown}" default="false"/>
+  </method>
+  <method name="setHFSections" start="1379" end="1440" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="function setHFSections()  =  Sets headers and footes on the worksheet page Cyril Ogana - 2012-07-19"/>
+      <param description="This is the key of the worksheet, either associative or indexed" type="string" variable="$wSheetKey"/>
+      <param description="This is true if numeric key is expected, false if otherwise" type="string" variable="$keyIsIndex"/>
+      <param description="If 0, set all. If string, set specified. If array, set indicated" type="mixed" variable="$section"/>
+      <param description="This is the text to place in the section. Default = &quot;&quot; like in excel" type="mixed" variable="$pValue"/>
+      <return type="object">
+        <type full="cymapgt\core\application\spreadsheet\SpreadsheetProcessor\bool" namespace="cymapgt\core\application\spreadsheet\SpreadsheetProcessor" name="bool"/>
+      </return>
+      <access value="public"/>
+    </docblock>
+    <parameter name="wSheetKey" byreference="false" type="string" default="''"/>
+    <parameter name="keyIsIndex" byreference="false" type="{unknown}" default="false"/>
+    <parameter name="section" byreference="false" type="string" default="'oddheader'"/>
+    <parameter name="pValue" byreference="false" type="string" default="''"/>
+  </method>
+  <method name="getHFSections" start="1451" end="1501" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="function getHFSections()  =  Gets headers and footer sections on the worksheet page Cyril Ogana - 2012-07-19"/>
+      <param description="This is the key of the worksheet, either associative or indexed" type="string" variable="$wSheetKey"/>
+      <param description="This is true if numeric key is expected, false if otherwise" type="string" variable="$keyIsIndex"/>
+      <param description="If 0, set all. If string, set specified. If array, set indicated" type="mixed" variable="$section"/>
+      <return description="string or bool" type="mixed"/>
+      <access value="public"/>
+    </docblock>
+    <parameter name="wSheetKey" byreference="false" type="string" default="''"/>
+    <parameter name="keyIsIndex" byreference="false" type="{unknown}" default="false"/>
+    <parameter name="section" byreference="false" type="string" default="'oddheader'"/>
+  </method>
+  <method name="setHFScaleWithDocument" start="1512" end="1527" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="function setHFScaleWithDocument() Toggle the flag to set scaling header and footer section with the document on or off"/>
+      <param description="- numeric index of worksheet or tab name" type="mixed" variable="$wSheetKey"/>
+      <param description="- true if $wSheetKey is to be index, false if wsheet name" type="object" variable="$keyIsIndex">
+        <type full="cymapgt\core\application\spreadsheet\SpreadsheetProcessor\bool" namespace="cymapgt\core\application\spreadsheet\SpreadsheetProcessor" name="bool"/>
+      </param>
+      <param description="- boolean" type="object" variable="$pValue">
+        <type full="cymapgt\core\application\spreadsheet\SpreadsheetProcessor\bool" namespace="cymapgt\core\application\spreadsheet\SpreadsheetProcessor" name="bool"/>
+      </param>
+      <return type="object">
+        <type full="cymapgt\core\application\spreadsheet\SpreadsheetProcessor\bool" namespace="cymapgt\core\application\spreadsheet\SpreadsheetProcessor" name="bool"/>
+      </return>
+    </docblock>
+    <parameter name="wSheetKey" byreference="false" type="string" default="''"/>
+    <parameter name="keyIsIndex" byreference="false" type="{unknown}" default="false"/>
+    <parameter name="pValue" byreference="false" type="{unknown}" default="true"/>
+  </method>
+  <method name="getHFScaleWithDocument" start="1537" end="1547" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="function getHFScaleWithDocument() Get flag for whether scale with document is set for header/footer"/>
+      <param description="This is the key of the worksheet, either associative or indexed" type="string" variable="$wSheetKey"/>
+      <param description="This is true if numeric key is expected, false if otherwise*" type="string" variable="$keyIsIndex"/>
+      <return type="object">
+        <type full="cymapgt\core\application\spreadsheet\SpreadsheetProcessor\bool" namespace="cymapgt\core\application\spreadsheet\SpreadsheetProcessor" name="bool"/>
+      </return>
+    </docblock>
+    <parameter name="wSheetKey" byreference="false" type="string" default="''"/>
+    <parameter name="keyIsIndex" byreference="false" type="{unknown}" default="false"/>
+  </method>
+  <method name="addDrawingObject" start="1559" end="1591" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="function addDrawingObject() Take in a name and path for a drawing object (image), add it and attach it to a worksheet"/>
+      <param description="This is the key of the worksheet, either associative or indexed" type="string" variable="$wSheetKey"/>
+      <param description="This is true if numeric key is expected, false if otherwise*" type="string" variable="$keyIsIndex"/>
+      <param description="This is the filepath and filename to the drawing object being added" type="string" variable="$objPath"/>
+      <param description="The name of the drawing object" type="string" variable="$objName"/>
+      <return description="return array of object name and PHPExcel_Worksheet_Drawing object or false" type="mixed"/>
+    </docblock>
+    <parameter name="wSheetKey" byreference="false" type="string" default="''"/>
+    <parameter name="keyIsIndex" byreference="false" type="{unknown}" default="false"/>
+    <parameter name="objPath" byreference="false" type="string" default="''"/>
+    <parameter name="objName" byreference="false" type="string" default="'imageObj'"/>
+    <inline>
+      <comment value="if drawing object created successfully, this array() associatively" line="1561"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="contain the 'name' i.e object name and the actual drawing object" line="1562"/>
+      <comment value="get the drawing collection and check if imageObj has been set" line="1568"/>
+      <comment value="if using default, generate next name e.g. imageObj, imageObj1, imageObj2" line="1571"/>
+      <comment value="Create a worksheet drawing object" line="1580"/>
+      <todo value="USE data service to register correct location. Also see parameter default on function header" line="1582"/>
+      <comment value="populate $objDrawingArr and return results" line="1584"/>
+    </inline>
+  </method>
+  <method name="getDrawingObjects" start="1603" end="1636" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="function getDrawingObjects() Return the entire array of drawing objects, or just one object"/>
+      <param description="This is the key of the worksheet, either associative or indexed" type="string" variable="$wSheetKey"/>
+      <param description="This is true if numeric key is expected, false if otherwise*" type="string" variable="$keyIsIndex"/>
+      <param description="The name of the drawing object. If blank, return all objects" type="string" variable="$objName"/>
+      <return description="Return array of drawing objects, or just one drawing object, or false if name of" type="mixed">the object you specified was not found</return>
+    </docblock>
+    <parameter name="wSheetKey" byreference="false" type="string" default="''"/>
+    <parameter name="keyIsIndex" byreference="false" type="{unknown}" default="false"/>
+    <parameter name="objName" byreference="false" type="string" default="''"/>
+    <inline>
+      <comment value="initialize this to empty string" line="1609"/>
+      <comment value="associative array where objName is the index" line="1610"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="and drawing object is the element" line="1611"/>
+      <comment value="get the drawing collection and check if imageObj has been set" line="1613"/>
+      <comment value="get the drawing name" line="1617"/>
+    </inline>
+  </method>
+  <method name="getNextDefaultObjName" start="1649" end="1668" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="function getNextDefaultObjName() Generate default object name by appending numeric suffix if objects with default name alread exist in the object collection"/>
+      <param description="This is the array of objects we want to get default name" type="array" variable="$objArray"/>
+      <param description="This is the name of the object" type="string" variable="$objName"/>
+      <param description="The method that must exist in an object instance of the objects" type="string" variable="$objNameMethodCall">contained in $objArray</param>
+      <return description="Return an available objName or false if error" type="mixed"/>
+    </docblock>
+    <parameter name="objArray" byreference="false" type="{unknown}"/>
+    <parameter name="objName" byreference="false" type="{unknown}"/>
+    <parameter name="objNameMethodCall" byreference="false" type="{unknown}"/>
+    <inline>
+      <comment value="hold the current name as we iterate" line="1650"/>
+      <comment value="counter for default objects added" line="1652"/>
+      <comment value="iterate $objArray and call the $objNameMethodCall" line="1655"/>
+      <comment value="append suffix and continue checking if is unique" line="1660"/>
+    </inline>
+  </method>
+  <method name="setStyle" start="1683" end="1696" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="function setStyle() Set variety of styles and layout on a cell or cell range"/>
+      <param description="This is the key of the worksheet, either associative or indexed" type="string" variable="$wSheetKey"/>
+      <param description="This is true if numeric key is expected, false if otherwise*" type="string" variable="$keyIsIndex"/>
+      <param description="The column of the cell to set the style" type="string" variable="$col"/>
+      <param description="The row of the cell to set the style" type="string" variable="$row"/>
+      <param description="We will only be supporting applyFromArray for now to" type="array" variable="$style">encourage batch procesing :)</param>
+      <param description="True to indicate $col.$row is a cellrange" type="object" variable="$isCoordinate">
+        <type full="cymapgt\core\application\spreadsheet\SpreadsheetProcessor\bool" namespace="cymapgt\core\application\spreadsheet\SpreadsheetProcessor" name="bool"/>
+      </param>
+      <return description="True/false" type="object">
+        <type full="cymapgt\core\application\spreadsheet\SpreadsheetProcessor\bool" namespace="cymapgt\core\application\spreadsheet\SpreadsheetProcessor" name="bool"/>
+      </return>
+    </docblock>
+    <parameter name="wSheetKey" byreference="false" type="{unknown}"/>
+    <parameter name="keyIsIndex" byreference="false" type="{unknown}"/>
+    <parameter name="col" byreference="false" type="{unknown}"/>
+    <parameter name="row" byreference="false" type="{unknown}"/>
+    <parameter name="style" byreference="false" type="{unknown}"/>
+    <parameter name="isCoordinate" byreference="false" type="{unknown}" default="false"/>
+  </method>
+  <method name="getStyle" start="1709" end="1722" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="function getStyle() Get the style object of a cell or cell range"/>
+      <param description="This is the key of the worksheet, either associative or indexed" type="string" variable="$wSheetKey"/>
+      <param description="This is true if numeric key is expected, false if otherwise*" type="string" variable="$keyIsIndex"/>
+      <param description="The column of the cell to set the style" type="string" variable="$col"/>
+      <param description="The row of the cell to set the style" type="string" variable="$row"/>
+      <param description="True to indicate $col.$row is a cellrange" type="object" variable="$isCoordinate">
+        <type full="cymapgt\core\application\spreadsheet\SpreadsheetProcessor\bool" namespace="cymapgt\core\application\spreadsheet\SpreadsheetProcessor" name="bool"/>
+      </param>
+      <return description="Object or boolean false" type="mixed"/>
+    </docblock>
+    <parameter name="wSheetKey" byreference="false" type="{unknown}"/>
+    <parameter name="keyIsIndex" byreference="false" type="{unknown}"/>
+    <parameter name="col" byreference="false" type="{unknown}"/>
+    <parameter name="row" byreference="false" type="{unknown}"/>
+    <parameter name="isCoordinate" byreference="false" type="{unknown}" default="false"/>
+  </method>
+  <method name="setMergeCells" start="1739" end="1768" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="function setMergeCells() Set variety of styles and layout on a cell or cell range"/>
+      <param description="This is the coordinate type, either &quot;TEXT&quot; or &quot;NUMERIC&quot;" type="string" variable="$coordType"/>
+      <param description="This is the key of the worksheet, either associative or indexed" type="string" variable="$wSheetKey"/>
+      <param description="This is true if numeric key is expected, false if otherwise" type="string" variable="$keyIsIndex"/>
+      <param description="The cell coordinates as excel range e.g A1:B10" type="string" variable="$cellCoord"/>
+      <param description="The start row coordinate as integer" type="int" variable="$cellR1"/>
+      <param description="The start col coordinate as integer" type="int" variable="$cellC1"/>
+      <param description="The end row coordinate as integer" type="int" variable="$cellR2"/>
+      <param description="The end col coordinate as integer" type="int" variable="$cellC2"/>
+      <return description="true/false" type="object">
+        <type full="cymapgt\core\application\spreadsheet\SpreadsheetProcessor\bool" namespace="cymapgt\core\application\spreadsheet\SpreadsheetProcessor" name="bool"/>
+      </return>
+      <access value="public"/>
+    </docblock>
+    <parameter name="coordType" byreference="false" type="{unknown}"/>
+    <parameter name="wSheetKey" byreference="false" type="string" default="''"/>
+    <parameter name="keyIsIndex" byreference="false" type="{unknown}" default="false"/>
+    <parameter name="cellCoord" byreference="false" type="string" default="''"/>
+    <parameter name="cellR1" byreference="false" type="integer" default="1"/>
+    <parameter name="cellC1" byreference="false" type="integer" default="0"/>
+    <parameter name="cellR2" byreference="false" type="integer" default="1"/>
+    <parameter name="cellC2" byreference="false" type="integer" default="0"/>
+  </method>
+  <method name="getMergeCells" start="1778" end="1790" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="function getMergeCells() Get all merged cell ranges as an array"/>
+      <param description="This is the key of the worksheet, either associative or indexed" type="string" variable="$wSheetKey"/>
+      <param description="This is true if numeric key is expected, false if otherwise*" type="string" variable="$keyIsIndex"/>
+      <return description="Array of merge coordinates or boolean false" type="mixed"/>
+    </docblock>
+    <parameter name="wSheetKey" byreference="false" type="string" default="''"/>
+    <parameter name="keyIsIndex" byreference="false" type="{unknown}" default="false"/>
+  </method>
+  <method name="getRangeCoordsFromArray" start="1808" end="1853" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="function getRangeCoordsFromArray()  Get the coordinates for multiple ranges input as array.">TODO: - introduce range checker so that conflicting ranges in differnet array
+         elements are either ignored/flagged or trigger an exception
+ TODO: - add option of returning ranges instead of string coords
+ TODO: - if the array passed in (coordsArray) is an associative array, add
+         param option for caller to specify whether a named range should be
+         returned</description>
+      <param description="coordsArray - Array of numeric coordinates of ranges to adjust" type="array"/>
+      <param description="adjustColIndex - If true, column values are reduced by value of 1" type="object">because column A in excel is 0 and not 1<type full="cymapgt\core\application\spreadsheet\SpreadsheetProcessor\bool" namespace="cymapgt\core\application\spreadsheet\SpreadsheetProcessor" name="bool"/></param>
+      <return description="- return string or false on error" type="mixed"/>
+    </docblock>
+    <parameter name="coordsArray" byreference="false" type="{unknown}"/>
+    <parameter name="adjustColIndex" byreference="false" type="{unknown}" default="false"/>
+    <inline>
+      <comment value="return fals if it is not an array" line="1810"/>
+      <comment value="declare the coordinates string that we will return" line="1815"/>
+      <comment value="loop through each coords" line="1818"/>
+      <comment value="$coord arrays should be associative arrays with indices &quot;col&quot; and &quot;row&quot;" line="1820"/>
+      <comment value="adjust for excel col beginning from 0. But if col was already 0 its error" line="1830"/>
+      <comment value="$append the range to coordsstring" line="1841"/>
+    </inline>
+  </method>
+  <parent full="cymapgt\core\application\spreadsheet\SpreadsheetProcessor\PHPExcelWrapper" namespace="cymapgt\core\application\spreadsheet\SpreadsheetProcessor" name="PHPExcelWrapper">
+    <member name="phpXl" type="{unknown}" visibility="protected" line="30"/>
+    <member name="phpXlWriter" type="{unknown}" visibility="protected" line="33"/>
+    <member name="phpXlReader" type="{unknown}" visibility="protected" line="36"/>
+    <member name="handle" type="{unknown}" visibility="protected" line="39"/>
+    <member name="fileName" type="{unknown}" visibility="public" line="42"/>
+    <member name="isOpen" type="{unknown}" visibility="public" line="45"/>
+    <member name="currentRow" type="{unknown}" visibility="public" line="48"/>
+    <member name="type" type="{unknown}" visibility="public" line="51"/>
+    <constructor name="__construct" start="59" end="69" abstract="false" final="false" static="false" visibility="public">
+      <parameter name="fileName" byreference="false" type="{unknown}"/>
+      <parameter name="fileDir" byreference="false" type="{unknown}"/>
+      <parameter name="fileExt" byreference="false" type="string" default="'xlsx'"/>
+      <parameter name="type" byreference="false" type="{unknown}" default="PHPExcelWrapperType::Excel2007"/>
+      <parameter name="ovrFlag" byreference="false" type="{unknown}" default="false"/>
+    </constructor>
+    <method name="setXlObj" start="77" end="104" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="function setXlObj()        = This function sets the protected PhpXl property. We only use this                              when we are injecting a file from objReader for editing Cyril Ogana - 2013-01-29"/>
+        <param description="This is the phpexcel object being opened for reading" type="object" variable="$obj"/>
+      </docblock>
+      <parameter name="obj" byreference="false" type="{unknown}"/>
+      <parameter name="objType" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="autoConvert" start="127" end="172" abstract="false" final="false" static="true" visibility="public">
+      <docblock>
+        <description compact="Automatically convert a file type to another">Automatically convert a file type to another. (From CSV to XLS/XLSX and back)
+The purpose of this function is primarly to convert an XLS/XLSX file to a CSV
+file for ease of reading data (just open a file handle, read line by line
+and do an explode(',', $line)</description>
+        <param description="The file name to convert. It doesn't have to have an extnesion as" type="string" variable="$fileToConvert"/>
+        <param description="The base directory from the factory" type="string" variable="$baseDir">PHPExcel can auto open in the proper format</param>
+        <param description="(OPTIONAL) The name of the new file to save." type="string" variable="$newFileName">This is file name ONLY (no folder path or extension)
+                                                  Default is tmp.</param>
+        <param description="(OPTIONAL) The type to convert to, either Excel5, Excel2007 or CSV." type="object" variable="$typeTo">Default is Excel5.<type full="cymapgt\core\application\spreadsheet\SpreadsheetProcessor\PHPExcelWrapper\PHPExcelWrapperType" namespace="cymapgt\core\application\spreadsheet\SpreadsheetProcessor\PHPExcelWrapper" name="PHPExcelWrapperType"/></param>
+        <param description="(OPTIONAL) True to automatically delete the $fileToConvert file." type="object" variable="$deleteOldFile">Default is false.<type full="cymapgt\core\application\spreadsheet\SpreadsheetProcessor\bool" namespace="cymapgt\core\application\spreadsheet\SpreadsheetProcessor" name="bool"/></param>
+        <return description="The new file name of the converted file" type="string"/>
+      </docblock>
+      <parameter name="fileToConvert" byreference="false" type="{unknown}"/>
+      <parameter name="baseDir" byreference="false" type="{unknown}"/>
+      <parameter name="newFileName" byreference="false" type="string" default="'tmp'"/>
+      <parameter name="typeTo" byreference="false" type="{unknown}" default="PHPExcelWrapperType::Excel5"/>
+      <parameter name="deleteOldFile" byreference="false" type="{unknown}" default="false"/>
+      <inline>
+        <comment value="NOTE: Any saving/reading to the Excel2007 format needs php_zip.so or php_zip.dll to operate" line="134"/>
+      </inline>
+    </method>
+    <method name="getNewFileName" start="188" end="209" abstract="false" final="false" static="true" visibility="public">
+      <docblock>
+        <description compact="Gets a new file name for a relevently named temp file">This function will get a new file name based on the parameters passed in
+If a file exists in the directory it will increment a counter and append
+it between the file name and extension.</description>
+        <param description="The directory to look at for a new file name" type="string" variable="$dir"/>
+        <param description="The old file name" type="string" variable="$oldFileName"/>
+        <param description="The extension of the file" type="string" variable="$ext"/>
+        <param description="If true, we do not create file indexes, but overwrite" type="object" variable="$ovrFlag">
+          <type full="cymapgt\core\application\spreadsheet\SpreadsheetProcessor\bool" namespace="cymapgt\core\application\spreadsheet\SpreadsheetProcessor" name="bool"/>
+        </param>
+        <returns value="string value of the new file name"/>
+      </docblock>
+      <parameter name="dir" byreference="false" type="{unknown}"/>
+      <parameter name="oldFileName" byreference="false" type="{unknown}"/>
+      <parameter name="ext" byreference="false" type="{unknown}"/>
+      <parameter name="ovrFlag" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="close" start="214" end="229" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Flushes out and saves any data and closes all underlying streams"/>
+      </docblock>
+    </method>
+    <method name="flush" start="234" end="242" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Flushes any data to the file (saves the file)"/>
+      </docblock>
+      <inline>
+        <comment value="CSV type doesn't need flush since it was open withw w+" line="235"/>
+      </inline>
+    </method>
+    <method name="getBaseStream" start="249" end="255" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Get the underlying stream object"/>
+        <returns value="Either the file object if Type is CSV or the underlying PHPExcel object"/>
+      </docblock>
+    </method>
+    <method name="getExcelAlphaColumn" start="264" end="285" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Gets the column name from a number (e.g. 2='B', 27='AA', etc.)"/>
+        <param description="The column number to convert" type="int" variable="$col"/>
+        <returns value="A string representation of the column number"/>
+      </docblock>
+      <parameter name="col" byreference="false" type="{unknown}"/>
+      <inline>
+        <comment value="disallow negative col number...Cyril Ogana 2014.04.30" line="265"/>
+      </inline>
+    </method>
+    <method name="getExcelColumnFromAlpha" start="294" end="310" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Gets the column number from column name (e.g. 'B'=2, 'AA'=27, etc.)"/>
+        <param description="The column name to convert" type="string" variable="$col"/>
+        <returns value="An integer value representation of the column name"/>
+      </docblock>
+      <parameter name="col" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="getExcelAlphanumericColumnRow" start="320" end="323" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Gets the Excel column name from a numeric column and row (e.g. 2 and 1 = 'B1', 27 and 2 = 'AA2', etc.)"/>
+        <param description="The column to convert" type="int" variable="$col"/>
+        <param description="The row" type="int" variable="$row"/>
+        <returns value="A string represenation of the column name and row number"/>
+      </docblock>
+      <parameter name="col" byreference="false" type="{unknown}"/>
+      <parameter name="row" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="getCellCoord" start="337" end="349" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Gets a string representation of a cell coordinate"/>
+        <param description="The column name/number (can be either an int or string)" type="mixed" variable="$col"/>
+        <param description="The row" type="int" variable="$row"/>
+        <param description="(OPTIONAL) If this is false, the function expects" type="object" variable="$isCoordinate">$col to be a numeric value. If this value is true
+this funcition simply concatenates $col and $row
+Default is false.<type full="cymapgt\core\application\spreadsheet\SpreadsheetProcessor\bool" namespace="cymapgt\core\application\spreadsheet\SpreadsheetProcessor" name="bool"/></param>
+        <returns value="A string representation of a cell coordinate"/>
+      </docblock>
+      <parameter name="col" byreference="false" type="{unknown}"/>
+      <parameter name="row" byreference="false" type="{unknown}"/>
+      <parameter name="isCoordinate" byreference="false" type="{unknown}" default="false"/>
+    </method>
+    <method name="open" start="358" end="394" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Open a file"/>
+        <param description="The file to open" type="string" variable="$fileName"/>
+        <param description="(OPTIONAL) The type of file to open (CSV/Excel5/Excel2007)." type="object" variable="$type">Default is PHPExcelWrapperType::Excel5.<type full="cymapgt\core\application\spreadsheet\SpreadsheetProcessor\PHPExcelWrapper\PHPExcelWrapperType" namespace="cymapgt\core\application\spreadsheet\SpreadsheetProcessor\PHPExcelWrapper" name="PHPExcelWrapperType"/></param>
+      </docblock>
+      <parameter name="fileName" byreference="false" type="{unknown}"/>
+      <parameter name="type" byreference="false" type="{unknown}" default="PHPExcelWrapperType::Excel2007"/>
+      <inline>
+        <comment value="Current row gets set to 1 (Excel is not 0 based)" line="366"/>
+      </inline>
+    </method>
+    <method name="setActiveWorksheet" start="401" end="407" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Sets the active worksheet"/>
+        <param description="The worksheet number to set" type="int" variable="$index"/>
+      </docblock>
+      <parameter name="index" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="save" start="412" end="414" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Save the current data and writes it to disk"/>
+      </docblock>
+    </method>
+    <method name="autoFit" start="422" end="441" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Set the columns in the Excel file to autofit the content"/>
+        <param description="(OPTIONAL) The column to autofit." type="int" variable="$column">Default is 0. (0 says all columns with content).</param>
+      </docblock>
+      <parameter name="column" byreference="false" type="integer" default="0"/>
+      <inline>
+        <comment value="Set a specific column" line="427"/>
+      </inline>
+    </method>
+    <method name="setBorders" start="459" end="493" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Set the borders around cells in an Excel file"/>
+        <param description="(OPTIONAL) The column to set the borders around." type="int" variable="$col">Default is 0. (0 says all columns)</param>
+        <param description="(OPTIONAL) The row to set the borders around." type="int" variable="$row">Default is 0. (0 says all rows)</param>
+        <param description="(OPTIONAL) The sides to set the border on." type="object" variable="$borderSides">Default is PHPExcelBorderType::All.<type full="cymapgt\core\application\spreadsheet\SpreadsheetProcessor\PHPExcelWrapper\PHPExcelBorderType" namespace="cymapgt\core\application\spreadsheet\SpreadsheetProcessor\PHPExcelWrapper" name="PHPExcelBorderType"/></param>
+        <param description="(OPTIONAL) The border style to set." type="object" variable="$borderType">Default is PHPExcelBorderStyle::BORDER_THIN.<type full="cymapgt\core\application\spreadsheet\SpreadsheetProcessor\PHPExcelWrapper\PHPExcelBorderStyle" namespace="cymapgt\core\application\spreadsheet\SpreadsheetProcessor\PHPExcelWrapper" name="PHPExcelBorderStyle"/></param>
+        <param description="(OPTIONAL) If this is false, the function expects" type="object" variable="$isCoordinate">$col to be a numeric value. If this value is true
+		 										this funcition simply concatenates $col and $row
+												Default is false.<type full="cymapgt\core\application\spreadsheet\SpreadsheetProcessor\bool" namespace="cymapgt\core\application\spreadsheet\SpreadsheetProcessor" name="bool"/></param>
+      </docblock>
+      <parameter name="col" byreference="false" type="integer" default="0"/>
+      <parameter name="row" byreference="false" type="integer" default="0"/>
+      <parameter name="borderSides" byreference="false" type="{unknown}" default="PHPExcelBorderType::All"/>
+      <parameter name="borderType" byreference="false" type="{unknown}" default="PHPExcelBorderStyle::BORDER_THIN"/>
+      <parameter name="isCoordinate" byreference="false" type="{unknown}" default="false"/>
+      <inline>
+        <comment value="if ($this-&gt;type == PHPExcelWrapperType::CSV) { return; }" line="466"/>
+        <comment xmlns="http://xml.phpdox.net/src" value="$wholeRow = ($col == 0); $wholeCol = ($row == 0);" line="467"/>
+        <comment xmlns="http://xml.phpdox.net/src" value="getHighsetColumn returns letter (AZ), need to convert to num" line="468"/>
+        <comment xmlns="http://xml.phpdox.net/src" value="if($col == 0) { $col = $this-&gt;getExcelColumnFromAlpha($this-&gt;phpXl-&gt;getActiveSheet()-&gt;getHighestColumn()); }" line="469"/>
+        <comment xmlns="http://xml.phpdox.net/src" value="if ($row == 0) { $row = $this-&gt;phpXl-&gt;getActiveSheet()-&gt;getHighestRow(); }" line="470"/>
+        <comment xmlns="http://xml.phpdox.net/src" value="$cellCoordEnd = $this-&gt;getCellCoord($col, $row, $isCoordinate);" line="471"/>
+        <comment xmlns="http://xml.phpdox.net/src" value="$cellCoordStart = 'A1';" line="472"/>
+        <comment xmlns="http://xml.phpdox.net/src" value="if (!$wholeCol || !$wholeRow) { // Only fall in here if one of them is false (Which means don't do all cells)" line="473"/>
+        <comment xmlns="http://xml.phpdox.net/src" value="if ($wholeCol) { $cellCoordStart = $this-&gt;getCellCoord($col, 1, $isCoordinate); }" line="474"/>
+        <comment xmlns="http://xml.phpdox.net/src" value="if ($wholeRow) { $cellCoordStart = 'A'.$row; }" line="475"/>
+        <comment xmlns="http://xml.phpdox.net/src" value="}" line="476"/>
+        <comment value="This code is broken. reverting to the $cellCoord method" line="476"/>
+        <comment value="freeup the memory" line="491"/>
+      </inline>
+    </method>
+    <method name="setCellBackColor" start="506" end="514" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Set the background color of a cell"/>
+        <param description="The column of the cell to set the back color" type="int" variable="$col"/>
+        <param description="The row of the cell to set the back color" type="int" variable="$row"/>
+        <param description="The HTML based RGB color (e.g. 'FF0000' is red)" type="string" variable="$rgb"/>
+        <param description="(OPTIONAL) If this is false, the function expects" type="object" variable="$isCoordinate">$col to be a numeric value. If this value is true
+		 							this funcition simply concatenates $col and $row
+									Default is false.<type full="cymapgt\core\application\spreadsheet\SpreadsheetProcessor\bool" namespace="cymapgt\core\application\spreadsheet\SpreadsheetProcessor" name="bool"/></param>
+      </docblock>
+      <parameter name="col" byreference="false" type="{unknown}"/>
+      <parameter name="row" byreference="false" type="{unknown}"/>
+      <parameter name="rgb" byreference="false" type="{unknown}"/>
+      <parameter name="isCoordinate" byreference="false" type="{unknown}" default="false"/>
+    </method>
+    <method name="setCellTextColor" start="527" end="535" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Set the text color of a cell"/>
+        <param description="The column of the cell to set the text color" type="int" variable="$col"/>
+        <param description="The row of the cell to set the text color" type="int" variable="$row"/>
+        <param description="The HTML based RGB color (e.g. 'FF0000' is red)" type="string" variable="$rgb"/>
+        <param description="(OPTIONAL) If this is false, the function expects" type="object" variable="$isCoordinate">$col to be a numeric value. If this value is true
+		 							this funcition simply concatenates $col and $row
+									Default is false.<type full="cymapgt\core\application\spreadsheet\SpreadsheetProcessor\bool" namespace="cymapgt\core\application\spreadsheet\SpreadsheetProcessor" name="bool"/></param>
+      </docblock>
+      <parameter name="col" byreference="false" type="{unknown}"/>
+      <parameter name="row" byreference="false" type="{unknown}"/>
+      <parameter name="rgb" byreference="false" type="{unknown}"/>
+      <parameter name="isCoordinate" byreference="false" type="{unknown}" default="false"/>
+    </method>
+    <method name="setCellFont" start="555" end="594" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Set the font name and size of a cell">If $col and $row are set to 0 (their default values), then the entire
+active sheet is set to the font family ans size</description>
+        <param description="The font family name to set (e.g. 'Arial', 'Calibri', etc.)" type="string" variable="$fontName">The font name must be a valid font name to set</param>
+        <param description="The font size to set (e.g. 10, 12, etc.)" type="int" variable="$fontSize"/>
+        <param description="(OPTIONAL) The column to set the font on." type="int" variable="$col">Default is 0. (0 means all columns)</param>
+        <param description="(OPTIONAL) The row to set the font on." type="int" variable="$row">Default is 0. (0 means all rows)</param>
+        <param description="(OPTIONAL) If this is false, the function expects" type="object" variable="$isCoordinate">$col to be a numeric value. If this value is true
+		 			this function simply concatenates $col and $row
+					Default is false.<type full="cymapgt\core\application\spreadsheet\SpreadsheetProcessor\bool" namespace="cymapgt\core\application\spreadsheet\SpreadsheetProcessor" name="bool"/></param>
+      </docblock>
+      <parameter name="fontName" byreference="false" type="{unknown}"/>
+      <parameter name="fontSize" byreference="false" type="{unknown}"/>
+      <parameter name="col" byreference="false" type="integer" default="0"/>
+      <parameter name="row" byreference="false" type="integer" default="0"/>
+      <parameter name="isCoordinate" byreference="false" type="{unknown}" default="false"/>
+      <inline>
+        <comment value="getHighsetColumn returns letter (AZ), need to convert to num" line="562"/>
+        <comment value="Only fall in here if one of them is false (Which means don't do all cells)" line="574"/>
+        <comment value="freeup the memory" line="592"/>
+      </inline>
+    </method>
+    <method name="setColumnColor" start="602" end="614" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Sets the color of a column"/>
+        <param description="The column to set the color to" type="int" variable="$col"/>
+        <param description="The HTML based RGB color (e.g. 'FF0000' is red)" type="string" variable="$rgb"/>
+      </docblock>
+      <parameter name="col" byreference="false" type="{unknown}"/>
+      <parameter name="rgb" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="setColumnFont" start="624" end="636" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Set a column to certain font family and size"/>
+        <param description="The column to set the font on" type="int" variable="$col"/>
+        <param description="The font family name to set (e.g. 'Arial', 'Calibri', etc.)" type="string" variable="$fontName">The font name must be a valid font name to set</param>
+        <param description="The font size to set (e.g. 10, 12, etc.)" type="int" variable="$fontSize"/>
+      </docblock>
+      <parameter name="col" byreference="false" type="{unknown}"/>
+      <parameter name="fontName" byreference="false" type="{unknown}"/>
+      <parameter name="fontSize" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="setHyperlink" start="654" end="668" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Add a hyperlink to a cell">When adding a hyperlink to a cell it does not color and underline
+the cell as if you were in Excel, to emulate this, set $autoColor = true</description>
+        <param description="The column of the cell" type="int" variable="$col"/>
+        <param description="The row of the cell" type="int" variable="$row"/>
+        <param description="The link to set the cell to" type="string" variable="$link"/>
+        <param description="(OPTIONAL) If this is false, the function expects" type="object" variable="$isCoordinate">$col to be a numeric value. If this value is true
+		 			this funcition simply concatenates $col and $row
+					Default is false.<type full="cymapgt\core\application\spreadsheet\SpreadsheetProcessor\bool" namespace="cymapgt\core\application\spreadsheet\SpreadsheetProcessor" name="bool"/></param>
+        <param description="(OPTIONAL) True to emulate the coloring of a cell" type="object" variable="$autoColor">Default is false.<type full="cymapgt\core\application\spreadsheet\SpreadsheetProcessor\bool" namespace="cymapgt\core\application\spreadsheet\SpreadsheetProcessor" name="bool"/></param>
+      </docblock>
+      <parameter name="col" byreference="false" type="{unknown}"/>
+      <parameter name="row" byreference="false" type="{unknown}"/>
+      <parameter name="link" byreference="false" type="{unknown}"/>
+      <parameter name="isCoordinate" byreference="false" type="{unknown}" default="false"/>
+      <parameter name="autoColor" byreference="false" type="{unknown}" default="false"/>
+    </method>
+    <method name="setWorksheetName" start="679" end="686" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Set the current worksheet name">This will set the name of the worksheet. You can see the name of
+the worksheet at the bottom of the Excel window (normally on
+a new worksheet it just says 'Sheet1')</description>
+        <param description="The name of the sheet to set to" type="string" variable="$name"/>
+      </docblock>
+      <parameter name="name" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="setRowColor" start="694" end="704" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Set an entire row to a certain color"/>
+        <param description="The row to set the color to" type="int" variable="$row"/>
+        <param description="The HTML based RGB color (e.g. 'FF0000' is red)" type="string" variable="$rgb"/>
+      </docblock>
+      <parameter name="row" byreference="false" type="{unknown}"/>
+      <parameter name="rgb" byreference="false" type="{unknown}"/>
+      <inline>
+        <comment value="B" line="701"/>
+      </inline>
+    </method>
+    <method name="setCellTextDirection" start="718" end="743" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Sets the direction of text in a cell"/>
+        <param description="The column of the cell to set the text direction" type="int" variable="$col"/>
+        <param description="The row of the cell to set the text directoin" type="int" variable="$row"/>
+        <param description="The PHPExcelTextDirection to set" type="object" variable="$dir">
+          <type full="cymapgt\core\application\spreadsheet\SpreadsheetProcessor\PHPExcelWrapper\PHPExcelTextDirection" namespace="cymapgt\core\application\spreadsheet\SpreadsheetProcessor\PHPExcelWrapper" name="PHPExcelTextDirection"/>
+        </param>
+        <param description="The angle to set the text to" type="int" variable="$angle"/>
+        <param description="(OPTIONAL) If this is false, the function expects" type="object" variable="$isCoordinate">$col to be a numeric value. If this value is true
+		 						this funcition simply concatenates $col and $row
+								Default is false.<type full="cymapgt\core\application\spreadsheet\SpreadsheetProcessor\bool" namespace="cymapgt\core\application\spreadsheet\SpreadsheetProcessor" name="bool"/></param>
+      </docblock>
+      <parameter name="col" byreference="false" type="{unknown}"/>
+      <parameter name="row" byreference="false" type="{unknown}"/>
+      <parameter name="dir" byreference="false" type="{unknown}"/>
+      <parameter name="angle" byreference="false" type="{unknown}"/>
+      <parameter name="isCoordinate" byreference="false" type="{unknown}" default="false"/>
+    </method>
+    <method name="setRowFont" start="753" end="765" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Sets the font of a row"/>
+        <param description="The row to set the font to" type="int" variable="$row"/>
+        <param description="The font family name to set (e.g. 'Arial', 'Calibri', etc.)" type="string" variable="$fontName">The font name must be a valid font name to set</param>
+        <param description="The font size to set (e.g. 10, 12, etc.)" type="int" variable="$fontSize"/>
+      </docblock>
+      <parameter name="row" byreference="false" type="{unknown}"/>
+      <parameter name="fontName" byreference="false" type="{unknown}"/>
+      <parameter name="fontSize" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="writeCell" start="778" end="791" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Write data to a specific cell"/>
+        <param description="The column of the cell to write to" type="int" variable="$col"/>
+        <param description="The row of the cell to write to" type="int" variable="$row"/>
+        <param description="The data to write to the cell" type="mixed" variable="$data"/>
+        <param description="(OPTIONAL) If this is false, the function expects" type="object" variable="$isCoordinate">$col to be a numeric value. If this value is true
+		 			this funcition simply concatenates $col and $row
+					Default is false.<type full="cymapgt\core\application\spreadsheet\SpreadsheetProcessor\bool" namespace="cymapgt\core\application\spreadsheet\SpreadsheetProcessor" name="bool"/></param>
+      </docblock>
+      <parameter name="col" byreference="false" type="{unknown}"/>
+      <parameter name="row" byreference="false" type="{unknown}"/>
+      <parameter name="data" byreference="false" type="{unknown}"/>
+      <parameter name="isCoordinate" byreference="false" type="{unknown}" default="false"/>
+    </method>
+    <method name="write" start="798" end="810" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Writes a row of data an advances the current row pointer"/>
+        <param description="The data to write (can be an array)" type="mixed" variable="$data"/>
+      </docblock>
+      <parameter name="data" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="writeRow" start="818" end="853" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Writes data to a specific row"/>
+        <param description="The row to write the data to" type="int" variable="$row"/>
+        <param description="The data to write" type="mixed" variable="$data"/>
+      </docblock>
+      <parameter name="row" byreference="false" type="{unknown}"/>
+      <parameter name="data" byreference="false" type="{unknown}"/>
+    </method>
+  </parent>
+</class>

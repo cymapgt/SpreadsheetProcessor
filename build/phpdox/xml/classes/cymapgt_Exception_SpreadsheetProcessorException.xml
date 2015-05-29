@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="cymapgt\Exception\SpreadsheetProcessorException" namespace="cymapgt\Exception" name="SpreadsheetProcessorException" abstract="false" final="false" start="16" end="18">
+  <file path="/home/rhossis/NetBeansProjects/cymapgt/core/application/spreadsheet/src/Exception" file="SpreadsheetProcessorException.php" realpath="/home/rhossis/NetBeansProjects/cymapgt/core/application/spreadsheet/src/Exception/SpreadsheetProcessorException.php" size="387" time="2014-10-01T07:56:09+03:00" unixtime="1412139369" sha1="f1058ce62df85a8f00abc9984325ae4655c2f20a" relative="Exception/SpreadsheetProcessorException.php"/>
+  <docblock>
+    <description compact="SpreadsheetProcessorException This is the exception class for the SpreadsheetProcessor"/>
+    <category value="Spreadsheet"/>
+    <package value="cymapgt.core.application.Spreadsheet"/>
+    <copyright value="Copyright (c) 2014 CYMAP-GT"/>
+    <author value="Cyril Ogana"/>
+  </docblock>
+  <extends full="Exception" namespace="" name="Exception"/>
+  <parent full="Exception" namespace="" name="Exception">
+    <member name="message" static="false" visibility="protected">
+    <default>null</default>
+    <docblock>
+      <description compact="The exception message"/>
+      <var type="string"/>
+    </docblock>
+  </member>
+    <member name="code" static="false" visibility="protected">
+    <default>null</default>
+    <docblock>
+      <description compact="The exception code"/>
+      <var type="int"/>
+    </docblock>
+  </member>
+    <member name="file" static="false" visibility="protected">
+    <default>null</default>
+    <docblock>
+      <description compact="The filename where the exception was created"/>
+      <var type="string"/>
+    </docblock>
+  </member>
+    <member name="line" static="false" visibility="protected">
+    <default>null</default>
+    <docblock>
+      <description compact="The line where the exception was created"/>
+      <var type="int"/>
+    </docblock>
+  </member>
+    <constructor name="__construct" abstract="false" static="false" visibility="public" final="false">
+    <docblock>
+      <description compact="Construct the exception"/>
+      <return type="void"/>
+    </docblock>
+    <parameter name="message" optional="true" byreference="false" type="string"/>
+    <parameter name="code" optional="true" byreference="false" type="int"/>
+    <parameter name="previous" optional="true" byreference="false" type="object" class="Exception"/>
+  </constructor>
+    <method name="getMessage" abstract="false" static="false" visibility="public" final="true">
+    <docblock>
+      <description compact="Gets the Exception message"/>
+      <return type="string"/>
+    </docblock>
+  </method>
+    <method name="getPrevious" abstract="false" static="false" visibility="public" final="true">
+    <docblock>
+      <description compact="Returns previous Exception"/>
+      <return type="Exception"/>
+    </docblock>
+  </method>
+    <method name="getCode" abstract="false" static="false" visibility="public" final="true">
+    <docblock>
+      <description compact="Gets the Exception code"/>
+      <return type="mixed"/>
+    </docblock>
+  </method>
+    <method name="getFile" abstract="false" static="false" visibility="public" final="true">
+    <docblock>
+      <description compact="Gets the file in which the exception occurred"/>
+      <return type="string"/>
+    </docblock>
+  </method>
+    <method name="getLine" abstract="false" static="false" visibility="public" final="true">
+    <docblock>
+      <description compact="Gets the line in which the exception occurred"/>
+      <return type="int"/>
+    </docblock>
+  </method>
+    <method name="getTrace" abstract="false" static="false" visibility="public" final="true">
+    <docblock>
+      <description compact="Gets the stack trace"/>
+      <return type="array"/>
+    </docblock>
+  </method>
+    <method name="getTraceAsString" abstract="false" static="false" visibility="public" final="true">
+    <docblock>
+      <description compact="Gets the stack trace as a string"/>
+      <return type="string"/>
+    </docblock>
+  </method>
+    <method name="__toString" abstract="false" static="false" visibility="public" final="false">
+    <docblock>
+      <description compact="String representation of the exception"/>
+      <return type="string"/>
+    </docblock>
+  </method>
+  </parent>
+</class>

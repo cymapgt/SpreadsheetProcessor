@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="cymapgt\core\application\spreadsheet\SpreadsheetProcessor\PHPExcelWrapper\PHPExcelBorderStyle" namespace="cymapgt\core\application\spreadsheet\SpreadsheetProcessor\PHPExcelWrapper" name="PHPExcelBorderStyle" abstract="false" final="false" start="7" end="23">
+  <file path="/home/rhossis/NetBeansProjects/cymapgt/core/application/spreadsheet/src/SpreadsheetProcessor/PHPExcelWrapper" file="PHPExcelBorderStyle.php" realpath="/home/rhossis/NetBeansProjects/cymapgt/core/application/spreadsheet/src/SpreadsheetProcessor/PHPExcelWrapper/PHPExcelBorderStyle.php" size="1047" time="2014-10-01T07:56:09+03:00" unixtime="1412139369" sha1="0e8eccc20c850a847f80a00d97140df1baa14e52" relative="SpreadsheetProcessor/PHPExcelWrapper/PHPExcelBorderStyle.php"/>
+  <constant name="BORDER_NONE" value="'none'"/>
+  <constant name="BORDER_DASHDOT" value="'dashDot'"/>
+  <constant name="BORDER_DASHDOTDOT" value="'dashDotDot'"/>
+  <constant name="BORDER_DASHED" value="'dashed'"/>
+  <constant name="BORDER_DOTTED" value="'dotted'"/>
+  <constant name="BORDER_DOUBLE" value="'double'"/>
+  <constant name="BORDER_HAIR" value="'hair'"/>
+  <constant name="BORDER_MEDIUM" value="'medium'"/>
+  <constant name="BORDER_MEDIUMDASHDOT" value="'mediumDashDot'"/>
+  <constant name="BORDER_MEDIUMDASHDOTDOT" value="'mediumDashDotDot'"/>
+  <constant name="BORDER_MEDIUMDASHED" value="'mediumDashed'"/>
+  <constant name="BORDER_SLANTDASHDOT" value="'slantDashDot'"/>
+  <constant name="BORDER_THICK" value="'thick'"/>
+  <constant name="BORDER_THIN" value="'thin'"/>
+</class>

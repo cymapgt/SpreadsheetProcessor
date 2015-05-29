@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <title>phpDox - cymapgt\core\application\spreadsheet\SpreadsheetProcessor\PHPExcelWrapper</title>
+    <link rel="stylesheet" type="text/css" href="../css/style.css" media="screen"/>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  </head>
+  <body>
+    <nav class="topnav">
+      <ul>
+        <li>
+          <div class="logo"><span>/**</span>phpDox</div>
+        </li>
+        <li class="separator">
+          <a href="../index.xhtml">Overview</a>
+        </li>
+        <li class="separator">
+          <a href="../namespaces.xhtml">Namespaces</a>
+        </li>
+        <li>
+          <a href="../classes.xhtml">Classes</a>
+        </li>
+        <li class="separator">
+          <a href="../source/index.xhtml">Source</a>
+        </li>
+      </ul>
+    </nav>
+    <div id="mainstage">
+      <div class="box">
+        <ul class="breadcrumb">
+          <li>
+            <a href="../index.xhtml">Overview</a>
+          </li>
+          <li class="separator">
+            <a href="../classes.xhtml">Classes</a>
+          </li>
+          <li class="separator">
+            <a href="../classes.xhtml#cymapgt_core_application_spreadsheet_SpreadsheetProcessor">cymapgt\core\application\spreadsheet\SpreadsheetProcessor</a>
+          </li>
+          <li class="separator">PHPExcelWrapper</li>
+        </ul>
+      </div>
+      <nav class="box">
+        <ul>
+          <li>
+            <a href="#introduction">Introduction</a>
+          </li>
+          <li>
+            <a href="#synopsis">Synopsis</a>
+          </li>
+          <li>
+            <a href="#hierarchy">Hierarchy</a>
+          </li>
+          <li>
+            <a href="#members">Members</a>
+          </li>
+          <li>
+            <a href="#methods">Methods</a>
+          </li>
+          <li>
+            <a href="../source/SpreadsheetProcessor/PHPExcelWrapper.php.xhtml#line27">Source</a>
+          </li>
+        </ul>
+      </nav>
+      <section>
+        <h1 id="introduction"><small>cymapgt\core\application\spreadsheet\SpreadsheetProcessor\</small>PHPExcelWrapper</h1>
+        <h4>PHPExcelWrapper class is a wrapper for the PHPExcel library</h4>
+        <p>The PHPExcelWrapper class aims to make reading/writing Excel files easier by<br/>creating an overall stream object. The PHPExcelWrapper class can be either<br/>a CSV or an Excel5/2007 type. There are no 'reading' or 'get' methods within<br/>this class becuase of the idea that it is much easier to read in data from<br/>a CSV than an Excel file. Thus we implement the AutoConvert static function<br/>which you can use to convert (if needed) an Excel file to a CSV file and<br/>read in the data via a file object and explode(',', $line)<br/>NOTE: if the Type is CSV, then a lot of functions in this class do not<br/>      do anything (e.g. autoFit() simply returns out)</p>
+        <ul>
+          <li>License: http://www.opensource.org/licenses/bsd-license.php</li>
+        </ul>
+        <h2 id="synopsis">Synopsis</h2>
+        <div class="synopsis">class PHPExcelWrapper
+            {<br/><ul class="none"><li>// members</li><li>protected <a href="#members">$phpXl</a>;
+                    </li><li>protected <a href="#members">$phpXlWriter</a>;
+                    </li><li>protected <a href="#members">$phpXlReader</a>;
+                    </li><li>protected <a href="#members">$handle</a>;
+                    </li><li>public <a href="#members">$fileName</a>;
+                    </li><li>public <a href="#members">$isOpen</a>;
+                    </li><li>public <a href="#members">$currentRow</a>;
+                    </li><li>public <a href="#members">$type</a>;
+                    </li></ul><ul class="none"><li>// methods</li><li>public void <a title="cymapgt\core\application\spreadsheet\SpreadsheetProcessor\PHPExcelWrapper" href="../classes/cymapgt_core_application_spreadsheet_SpreadsheetProcessor_PHPExcelWrapper/__construct.xhtml">__construct</a>()
+                    </li><li>public void <a title="cymapgt\core\application\spreadsheet\SpreadsheetProcessor\PHPExcelWrapper" href="../classes/cymapgt_core_application_spreadsheet_SpreadsheetProcessor_PHPExcelWrapper/setXlObj.xhtml">setXlObj</a>()
+                    </li><li>public static string <a title="cymapgt\core\application\spreadsheet\SpreadsheetProcessor\PHPExcelWrapper" href="../classes/cymapgt_core_application_spreadsheet_SpreadsheetProcessor_PHPExcelWrapper/autoConvert.xhtml">autoConvert</a>()
+                    </li><li>public static void <a title="cymapgt\core\application\spreadsheet\SpreadsheetProcessor\PHPExcelWrapper" href="../classes/cymapgt_core_application_spreadsheet_SpreadsheetProcessor_PHPExcelWrapper/getNewFileName.xhtml">getNewFileName</a>()
+                    </li><li>public void <a title="cymapgt\core\application\spreadsheet\SpreadsheetProcessor\PHPExcelWrapper" href="../classes/cymapgt_core_application_spreadsheet_SpreadsheetProcessor_PHPExcelWrapper/close.xhtml">close</a>()
+                    </li><li>public void <a title="cymapgt\core\application\spreadsheet\SpreadsheetProcessor\PHPExcelWrapper" href="../classes/cymapgt_core_application_spreadsheet_SpreadsheetProcessor_PHPExcelWrapper/flush.xhtml">flush</a>()
+                    </li><li>public void <a title="cymapgt\core\application\spreadsheet\SpreadsheetProcessor\PHPExcelWrapper" href="../classes/cymapgt_core_application_spreadsheet_SpreadsheetProcessor_PHPExcelWrapper/getBaseStream.xhtml">getBaseStream</a>()
+                    </li><li>public void <a title="cymapgt\core\application\spreadsheet\SpreadsheetProcessor\PHPExcelWrapper" href="../classes/cymapgt_core_application_spreadsheet_SpreadsheetProcessor_PHPExcelWrapper/getExcelAlphaColumn.xhtml">getExcelAlphaColumn</a>()
+                    </li><li>public void <a title="cymapgt\core\application\spreadsheet\SpreadsheetProcessor\PHPExcelWrapper" href="../classes/cymapgt_core_application_spreadsheet_SpreadsheetProcessor_PHPExcelWrapper/getExcelColumnFromAlpha.xhtml">getExcelColumnFromAlpha</a>()
+                    </li><li>public void <a title="cymapgt\core\application\spreadsheet\SpreadsheetProcessor\PHPExcelWrapper" href="../classes/cymapgt_core_application_spreadsheet_SpreadsheetProcessor_PHPExcelWrapper/getExcelAlphanumericColumnRow.xhtml">getExcelAlphanumericColumnRow</a>()
+                    </li><li>public void <a title="cymapgt\core\application\spreadsheet\SpreadsheetProcessor\PHPExcelWrapper" href="../classes/cymapgt_core_application_spreadsheet_SpreadsheetProcessor_PHPExcelWrapper/getCellCoord.xhtml">getCellCoord</a>()
+                    </li><li>public void <a title="cymapgt\core\application\spreadsheet\SpreadsheetProcessor\PHPExcelWrapper" href="../classes/cymapgt_core_application_spreadsheet_SpreadsheetProcessor_PHPExcelWrapper/open.xhtml">open</a>()
+                    </li><li>public void <a title="cymapgt\core\application\spreadsheet\SpreadsheetProcessor\PHPExcelWrapper" href="../classes/cymapgt_core_application_spreadsheet_SpreadsheetProcessor_PHPExcelWrapper/setActiveWorksheet.xhtml">setActiveWorksheet</a>()
+                    </li><li>public void <a title="cymapgt\core\application\spreadsheet\SpreadsheetProcessor\PHPExcelWrapper" href="../classes/cymapgt_core_application_spreadsheet_SpreadsheetProcessor_PHPExcelWrapper/save.xhtml">save</a>()
+                    </li><li>public void <a title="cymapgt\core\application\spreadsheet\SpreadsheetProcessor\PHPExcelWrapper" href="../classes/cymapgt_core_application_spreadsheet_SpreadsheetProcessor_PHPExcelWrapper/autoFit.xhtml">autoFit</a>()
+                    </li><li>public void <a title="cymapgt\core\application\spreadsheet\SpreadsheetProcessor\PHPExcelWrapper" href="../classes/cymapgt_core_application_spreadsheet_SpreadsheetProcessor_PHPExcelWrapper/setBorders.xhtml">setBorders</a>()
+                    </li><li>public void <a title="cymapgt\core\application\spreadsheet\SpreadsheetProcessor\PHPExcelWrapper" href="../classes/cymapgt_core_application_spreadsheet_SpreadsheetProcessor_PHPExcelWrapper/setCellBackColor.xhtml">setCellBackColor</a>()
+                    </li><li>public void <a title="cymapgt\core\application\spreadsheet\SpreadsheetProcessor\PHPExcelWrapper" href="../classes/cymapgt_core_application_spreadsheet_SpreadsheetProcessor_PHPExcelWrapper/setCellTextColor.xhtml">setCellTextColor</a>()
+                    </li><li>public void <a title="cymapgt\core\application\spreadsheet\SpreadsheetProcessor\PHPExcelWrapper" href="../classes/cymapgt_core_application_spreadsheet_SpreadsheetProcessor_PHPExcelWrapper/setCellFont.xhtml">setCellFont</a>()
+                    </li><li>public void <a title="cymapgt\core\application\spreadsheet\SpreadsheetProcessor\PHPExcelWrapper" href="../classes/cymapgt_core_application_spreadsheet_SpreadsheetProcessor_PHPExcelWrapper/setColumnColor.xhtml">setColumnColor</a>()
+                    </li><li>public void <a title="cymapgt\core\application\spreadsheet\SpreadsheetProcessor\PHPExcelWrapper" href="../classes/cymapgt_core_application_spreadsheet_SpreadsheetProcessor_PHPExcelWrapper/setColumnFont.xhtml">setColumnFont</a>()
+                    </li><li>public void <a title="cymapgt\core\application\spreadsheet\SpreadsheetProcessor\PHPExcelWrapper" href="../classes/cymapgt_core_application_spreadsheet_SpreadsheetProcessor_PHPExcelWrapper/setHyperlink.xhtml">setHyperlink</a>()
+                    </li><li>public void <a title="cymapgt\core\application\spreadsheet\SpreadsheetProcessor\PHPExcelWrapper" href="../classes/cymapgt_core_application_spreadsheet_SpreadsheetProcessor_PHPExcelWrapper/setWorksheetName.xhtml">setWorksheetName</a>()
+                    </li><li>public void <a title="cymapgt\core\application\spreadsheet\SpreadsheetProcessor\PHPExcelWrapper" href="../classes/cymapgt_core_application_spreadsheet_SpreadsheetProcessor_PHPExcelWrapper/setRowColor.xhtml">setRowColor</a>()
+                    </li><li>public void <a title="cymapgt\core\application\spreadsheet\SpreadsheetProcessor\PHPExcelWrapper" href="../classes/cymapgt_core_application_spreadsheet_SpreadsheetProcessor_PHPExcelWrapper/setCellTextDirection.xhtml">setCellTextDirection</a>()
+                    </li><li>public void <a title="cymapgt\core\application\spreadsheet\SpreadsheetProcessor\PHPExcelWrapper" href="../classes/cymapgt_core_application_spreadsheet_SpreadsheetProcessor_PHPExcelWrapper/setRowFont.xhtml">setRowFont</a>()
+                    </li><li>public void <a title="cymapgt\core\application\spreadsheet\SpreadsheetProcessor\PHPExcelWrapper" href="../classes/cymapgt_core_application_spreadsheet_SpreadsheetProcessor_PHPExcelWrapper/writeCell.xhtml">writeCell</a>()
+                    </li><li>public void <a title="cymapgt\core\application\spreadsheet\SpreadsheetProcessor\PHPExcelWrapper" href="../classes/cymapgt_core_application_spreadsheet_SpreadsheetProcessor_PHPExcelWrapper/write.xhtml">write</a>()
+                    </li><li>public void <a title="cymapgt\core\application\spreadsheet\SpreadsheetProcessor\PHPExcelWrapper" href="../classes/cymapgt_core_application_spreadsheet_SpreadsheetProcessor_PHPExcelWrapper/writeRow.xhtml">writeRow</a>()
+                    </li></ul>
+
+            }<br/></div>
+        <h2 id="hierarchy">Hierarchy</h2>
+        <div class="styled">
+          <h4>Extended by</h4>
+          <ul>
+            <li>
+              <a href="../classes/cymapgt_core_application_spreadsheet_SpreadsheetProcessor_SpreadsheetProcessor.xhtml">cymapgt\core\application\spreadsheet\SpreadsheetProcessor\SpreadsheetProcessor</a>
+            </li>
+          </ul>
+        </div>
+        <h2 id="members">Members</h2>
+        <div class="styled members">
+          <h4>protected</h4>
+          <ul class="members">
+            <li id="handle">
+              <strong>$handle</strong>
+            </li>
+            <li id="phpXl">
+              <strong>$phpXl</strong>
+            </li>
+            <li id="phpXlReader">
+              <strong>$phpXlReader</strong>
+            </li>
+            <li id="phpXlWriter">
+              <strong>$phpXlWriter</strong>
+            </li>
+          </ul>
+          <h4>public</h4>
+          <ul class="members">
+            <li id="currentRow">
+              <strong>$currentRow</strong>
+            </li>
+            <li id="fileName">
+              <strong>$fileName</strong>
+            </li>
+            <li id="isOpen">
+              <strong>$isOpen</strong>
+            </li>
+            <li id="type">
+              <strong>$type</strong>
+            </li>
+          </ul>
+        </div>
+        <h2 id="methods">Methods</h2>
+        <div class="styled">
+          <h4>public</h4>
+          <ul>
+            <li id="__construct">
+              <a title="cymapgt\core\application\spreadsheet\SpreadsheetProcessor\PHPExcelWrapper" href="../classes/cymapgt_core_application_spreadsheet_SpreadsheetProcessor_PHPExcelWrapper/__construct.xhtml">__construct()</a>
+            </li>
+            <li id="autoConvert"><a title="cymapgt\core\application\spreadsheet\SpreadsheetProcessor\PHPExcelWrapper" href="../classes/cymapgt_core_application_spreadsheet_SpreadsheetProcessor_PHPExcelWrapper/autoConvert.xhtml">autoConvert()</a>
+                — Automatically convert a file type to another</li>
+            <li id="autoFit"><a title="cymapgt\core\application\spreadsheet\SpreadsheetProcessor\PHPExcelWrapper" href="../classes/cymapgt_core_application_spreadsheet_SpreadsheetProcessor_PHPExcelWrapper/autoFit.xhtml">autoFit()</a>
+                — Set the columns in the Excel file to autofit the content</li>
+            <li id="close"><a title="cymapgt\core\application\spreadsheet\SpreadsheetProcessor\PHPExcelWrapper" href="../classes/cymapgt_core_application_spreadsheet_SpreadsheetProcessor_PHPExcelWrapper/close.xhtml">close()</a>
+                — Flushes out and saves any data and closes all underlying streams</li>
+            <li id="flush"><a title="cymapgt\core\application\spreadsheet\SpreadsheetProcessor\PHPExcelWrapper" href="../classes/cymapgt_core_application_spreadsheet_SpreadsheetProcessor_PHPExcelWrapper/flush.xhtml">flush()</a>
+                — Flushes any data to the file (saves the file)</li>
+            <li id="getBaseStream"><a title="cymapgt\core\application\spreadsheet\SpreadsheetProcessor\PHPExcelWrapper" href="../classes/cymapgt_core_application_spreadsheet_SpreadsheetProcessor_PHPExcelWrapper/getBaseStream.xhtml">getBaseStream()</a>
+                — Get the underlying stream object</li>
+            <li id="getCellCoord"><a title="cymapgt\core\application\spreadsheet\SpreadsheetProcessor\PHPExcelWrapper" href="../classes/cymapgt_core_application_spreadsheet_SpreadsheetProcessor_PHPExcelWrapper/getCellCoord.xhtml">getCellCoord()</a>
+                — Gets a string representation of a cell coordinate</li>
+            <li id="getExcelAlphaColumn"><a title="cymapgt\core\application\spreadsheet\SpreadsheetProcessor\PHPExcelWrapper" href="../classes/cymapgt_core_application_spreadsheet_SpreadsheetProcessor_PHPExcelWrapper/getExcelAlphaColumn.xhtml">getExcelAlphaColumn()</a>
+                — Gets the column name from a number (e.g. 2='B', 27='AA', etc.)</li>
+            <li id="getExcelAlphanumericColumnRow"><a title="cymapgt\core\application\spreadsheet\SpreadsheetProcessor\PHPExcelWrapper" href="../classes/cymapgt_core_application_spreadsheet_SpreadsheetProcessor_PHPExcelWrapper/getExcelAlphanumericColumnRow.xhtml">getExcelAlphanumericColumnRow()</a>
+                — Gets the Excel column name from a numeric column and row (e.g. 2 and 1 = 'B1', 27 and 2 = 'AA2', etc.)</li>
+            <li id="getExcelColumnFromAlpha"><a title="cymapgt\core\application\spreadsheet\SpreadsheetProcessor\PHPExcelWrapper" href="../classes/cymapgt_core_application_spreadsheet_SpreadsheetProcessor_PHPExcelWrapper/getExcelColumnFromAlpha.xhtml">getExcelColumnFromAlpha()</a>
+                — Gets the column number from column name (e.g. 'B'=2, 'AA'=27, etc.)</li>
+            <li id="getNewFileName"><a title="cymapgt\core\application\spreadsheet\SpreadsheetProcessor\PHPExcelWrapper" href="../classes/cymapgt_core_application_spreadsheet_SpreadsheetProcessor_PHPExcelWrapper/getNewFileName.xhtml">getNewFileName()</a>
+                — Gets a new file name for a relevently named temp file</li>
+            <li id="open"><a title="cymapgt\core\application\spreadsheet\SpreadsheetProcessor\PHPExcelWrapper" href="../classes/cymapgt_core_application_spreadsheet_SpreadsheetProcessor_PHPExcelWrapper/open.xhtml">open()</a>
+                — Open a file</li>
+            <li id="save"><a title="cymapgt\core\application\spreadsheet\SpreadsheetProcessor\PHPExcelWrapper" href="../classes/cymapgt_core_application_spreadsheet_SpreadsheetProcessor_PHPExcelWrapper/save.xhtml">save()</a>
+                — Save the current data and writes it to disk</li>
+            <li id="setActiveWorksheet"><a title="cymapgt\core\application\spreadsheet\SpreadsheetProcessor\PHPExcelWrapper" href="../classes/cymapgt_core_application_spreadsheet_SpreadsheetProcessor_PHPExcelWrapper/setActiveWorksheet.xhtml">setActiveWorksheet()</a>
+                — Sets the active worksheet</li>
+            <li id="setBorders"><a title="cymapgt\core\application\spreadsheet\SpreadsheetProcessor\PHPExcelWrapper" href="../classes/cymapgt_core_application_spreadsheet_SpreadsheetProcessor_PHPExcelWrapper/setBorders.xhtml">setBorders()</a>
+                — Set the borders around cells in an Excel file</li>
+            <li id="setCellBackColor"><a title="cymapgt\core\application\spreadsheet\SpreadsheetProcessor\PHPExcelWrapper" href="../classes/cymapgt_core_application_spreadsheet_SpreadsheetProcessor_PHPExcelWrapper/setCellBackColor.xhtml">setCellBackColor()</a>
+                — Set the background color of a cell</li>
+            <li id="setCellFont"><a title="cymapgt\core\application\spreadsheet\SpreadsheetProcessor\PHPExcelWrapper" href="../classes/cymapgt_core_application_spreadsheet_SpreadsheetProcessor_PHPExcelWrapper/setCellFont.xhtml">setCellFont()</a>
+                — Set the font name and size of a cell</li>
+            <li id="setCellTextColor"><a title="cymapgt\core\application\spreadsheet\SpreadsheetProcessor\PHPExcelWrapper" href="../classes/cymapgt_core_application_spreadsheet_SpreadsheetProcessor_PHPExcelWrapper/setCellTextColor.xhtml">setCellTextColor()</a>
+                — Set the text color of a cell</li>
+            <li id="setCellTextDirection"><a title="cymapgt\core\application\spreadsheet\SpreadsheetProcessor\PHPExcelWrapper" href="../classes/cymapgt_core_application_spreadsheet_SpreadsheetProcessor_PHPExcelWrapper/setCellTextDirection.xhtml">setCellTextDirection()</a>
+                — Sets the direction of text in a cell</li>
+            <li id="setColumnColor"><a title="cymapgt\core\application\spreadsheet\SpreadsheetProcessor\PHPExcelWrapper" href="../classes/cymapgt_core_application_spreadsheet_SpreadsheetProcessor_PHPExcelWrapper/setColumnColor.xhtml">setColumnColor()</a>
+                — Sets the color of a column</li>
+            <li id="setColumnFont"><a title="cymapgt\core\application\spreadsheet\SpreadsheetProcessor\PHPExcelWrapper" href="../classes/cymapgt_core_application_spreadsheet_SpreadsheetProcessor_PHPExcelWrapper/setColumnFont.xhtml">setColumnFont()</a>
+                — Set a column to certain font family and size</li>
+            <li id="setHyperlink"><a title="cymapgt\core\application\spreadsheet\SpreadsheetProcessor\PHPExcelWrapper" href="../classes/cymapgt_core_application_spreadsheet_SpreadsheetProcessor_PHPExcelWrapper/setHyperlink.xhtml">setHyperlink()</a>
+                — Add a hyperlink to a cell</li>
+            <li id="setRowColor"><a title="cymapgt\core\application\spreadsheet\SpreadsheetProcessor\PHPExcelWrapper" href="../classes/cymapgt_core_application_spreadsheet_SpreadsheetProcessor_PHPExcelWrapper/setRowColor.xhtml">setRowColor()</a>
+                — Set an entire row to a certain color</li>
+            <li id="setRowFont"><a title="cymapgt\core\application\spreadsheet\SpreadsheetProcessor\PHPExcelWrapper" href="../classes/cymapgt_core_application_spreadsheet_SpreadsheetProcessor_PHPExcelWrapper/setRowFont.xhtml">setRowFont()</a>
+                — Sets the font of a row</li>
+            <li id="setWorksheetName"><a title="cymapgt\core\application\spreadsheet\SpreadsheetProcessor\PHPExcelWrapper" href="../classes/cymapgt_core_application_spreadsheet_SpreadsheetProcessor_PHPExcelWrapper/setWorksheetName.xhtml">setWorksheetName()</a>
+                — Set the current worksheet name</li>
+            <li id="setXlObj"><a title="cymapgt\core\application\spreadsheet\SpreadsheetProcessor\PHPExcelWrapper" href="../classes/cymapgt_core_application_spreadsheet_SpreadsheetProcessor_PHPExcelWrapper/setXlObj.xhtml">setXlObj()</a>
+                — function setXlObj()        = This function sets the protected PhpXl property. We only use this                              when we are injecting a file from objReader for editing Cyril Ogana - 2013-01-29</li>
+            <li id="write"><a title="cymapgt\core\application\spreadsheet\SpreadsheetProcessor\PHPExcelWrapper" href="../classes/cymapgt_core_application_spreadsheet_SpreadsheetProcessor_PHPExcelWrapper/write.xhtml">write()</a>
+                — Writes a row of data an advances the current row pointer</li>
+            <li id="writeCell"><a title="cymapgt\core\application\spreadsheet\SpreadsheetProcessor\PHPExcelWrapper" href="../classes/cymapgt_core_application_spreadsheet_SpreadsheetProcessor_PHPExcelWrapper/writeCell.xhtml">writeCell()</a>
+                — Write data to a specific cell</li>
+            <li id="writeRow"><a title="cymapgt\core\application\spreadsheet\SpreadsheetProcessor\PHPExcelWrapper" href="../classes/cymapgt_core_application_spreadsheet_SpreadsheetProcessor_PHPExcelWrapper/writeRow.xhtml">writeRow()</a>
+                — Writes data to a specific row</li>
+          </ul>
+        </div>
+      </section>
+    </div>
+    <footer>
+      <span>Generated using phpDox 0.7.0 - Copyright (C) 2010 - 2015 by Arne Blankerts</span>
+    </footer>
+  </body>
+</html>

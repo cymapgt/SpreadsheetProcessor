@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <title>phpDox - cymapgt\core\application\spreadsheet\SpreadsheetProcessor\SpreadsheetProcessorFactory</title>
+    <link rel="stylesheet" type="text/css" href="../css/style.css" media="screen"/>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  </head>
+  <body>
+    <nav class="topnav">
+      <ul>
+        <li>
+          <div class="logo"><span>/**</span>phpDox</div>
+        </li>
+        <li class="separator">
+          <a href="../index.xhtml">Overview</a>
+        </li>
+        <li class="separator">
+          <a href="../namespaces.xhtml">Namespaces</a>
+        </li>
+        <li>
+          <a href="../classes.xhtml">Classes</a>
+        </li>
+        <li class="separator">
+          <a href="../source/index.xhtml">Source</a>
+        </li>
+      </ul>
+    </nav>
+    <div id="mainstage">
+      <div class="box">
+        <ul class="breadcrumb">
+          <li>
+            <a href="../index.xhtml">Overview</a>
+          </li>
+          <li class="separator">
+            <a href="../classes.xhtml">Classes</a>
+          </li>
+          <li class="separator">
+            <a href="../classes.xhtml#cymapgt_core_application_spreadsheet_SpreadsheetProcessor">cymapgt\core\application\spreadsheet\SpreadsheetProcessor</a>
+          </li>
+          <li class="separator">SpreadsheetProcessorFactory</li>
+        </ul>
+      </div>
+      <nav class="box">
+        <ul>
+          <li>
+            <a href="#introduction">Introduction</a>
+          </li>
+          <li>
+            <a href="#synopsis">Synopsis</a>
+          </li>
+          <li>
+            <a href="#tasks">Tasks</a>
+          </li>
+          <li>
+            <a href="#members">Members</a>
+          </li>
+          <li>
+            <a href="#methods">Methods</a>
+          </li>
+          <li>
+            <a href="../source/SpreadsheetProcessor/SpreadsheetProcessorFactory.php.xhtml#line19">Source</a>
+          </li>
+        </ul>
+      </nav>
+      <section>
+        <h1 id="introduction"><small>cymapgt\core\application\spreadsheet\SpreadsheetProcessor\</small>SpreadsheetProcessorFactory</h1>
+        <h4>SpreadsheetProcessorFactory This class is a singleton factory. It creates file handlers to the excel workbook object and to csv, and also wraps important static methods from the PHPExcel library e.g caching</h4>
+        <p/>
+        <ul>
+          <li>Copyright: Copyright (c) 2014 - cymap</li>
+          <li>License: http://www.opensource.org/licenses/bsd-license.php</li>
+        </ul>
+        <h2 id="synopsis">Synopsis</h2>
+        <div class="synopsis">class SpreadsheetProcessorFactory
+            {<br/><ul class="none"><li>// members</li><li>private array <a href="#members">$cacheArray</a>;
+                    </li><li>private array <a href="#members">$rwFileTypes</a>;
+                    </li><li>private string <a href="#members">$valueBinder</a>;
+                    </li><li>private array <a href="#members">$valueBinders</a>;
+                    </li><li>private <a href="#members">$instance</a>;
+                    </li><li>private <a href="#members">$sandboxMode</a>;
+                    </li><li>private <a href="#members">$baseDir</a>;
+                    </li></ul><ul class="none"><li>// methods</li><li>private void <a title="cymapgt\core\application\spreadsheet\SpreadsheetProcessor\SpreadsheetProcessorFactory" href="../classes/cymapgt_core_application_spreadsheet_SpreadsheetProcessor_SpreadsheetProcessorFactory/__construct.xhtml">__construct</a>()
+                    </li><li>public static  <a title="cymapgt\core\application\spreadsheet\SpreadsheetProcessor\SpreadsheetProcessorFactory" href="../classes/cymapgt_core_application_spreadsheet_SpreadsheetProcessor_SpreadsheetProcessorFactory/getInstance.xhtml">getInstance</a>()
+                    </li><li>public void <a title="cymapgt\core\application\spreadsheet\SpreadsheetProcessor\SpreadsheetProcessorFactory" href="../classes/cymapgt_core_application_spreadsheet_SpreadsheetProcessor_SpreadsheetProcessorFactory/__clone.xhtml">__clone</a>()
+                    </li><li>public static void <a title="cymapgt\core\application\spreadsheet\SpreadsheetProcessor\SpreadsheetProcessorFactory" href="../classes/cymapgt_core_application_spreadsheet_SpreadsheetProcessor_SpreadsheetProcessorFactory/initialize.xhtml">initialize</a>()
+                    </li><li>public static void <a title="cymapgt\core\application\spreadsheet\SpreadsheetProcessor\SpreadsheetProcessorFactory" href="../classes/cymapgt_core_application_spreadsheet_SpreadsheetProcessor_SpreadsheetProcessorFactory/setBaseDir.xhtml">setBaseDir</a>()
+                    </li><li>public void <a title="cymapgt\core\application\spreadsheet\SpreadsheetProcessor\SpreadsheetProcessorFactory" href="../classes/cymapgt_core_application_spreadsheet_SpreadsheetProcessor_SpreadsheetProcessorFactory/setCacheMethod.xhtml">setCacheMethod</a>()
+                    </li><li>public mixed <a title="cymapgt\core\application\spreadsheet\SpreadsheetProcessor\SpreadsheetProcessorFactory" href="../classes/cymapgt_core_application_spreadsheet_SpreadsheetProcessor_SpreadsheetProcessorFactory/getCacheMethod.xhtml">getCacheMethod</a>()
+                    </li><li>public void <a title="cymapgt\core\application\spreadsheet\SpreadsheetProcessor\SpreadsheetProcessorFactory" href="../classes/cymapgt_core_application_spreadsheet_SpreadsheetProcessor_SpreadsheetProcessorFactory/resetCacheMethod.xhtml">resetCacheMethod</a>()
+                    </li><li>public  <a title="cymapgt\core\application\spreadsheet\SpreadsheetProcessor\SpreadsheetProcessorFactory" href="../classes/cymapgt_core_application_spreadsheet_SpreadsheetProcessor_SpreadsheetProcessorFactory/createFile.xhtml">createFile</a>()
+                    </li><li>public  <a title="cymapgt\core\application\spreadsheet\SpreadsheetProcessor\SpreadsheetProcessorFactory" href="../classes/cymapgt_core_application_spreadsheet_SpreadsheetProcessor_SpreadsheetProcessorFactory/openFile.xhtml">openFile</a>()
+                    </li><li>public void <a title="cymapgt\core\application\spreadsheet\SpreadsheetProcessor\SpreadsheetProcessorFactory" href="../classes/cymapgt_core_application_spreadsheet_SpreadsheetProcessor_SpreadsheetProcessorFactory/addValueBinder.xhtml">addValueBinder</a>()
+                    </li><li>public void <a title="cymapgt\core\application\spreadsheet\SpreadsheetProcessor\SpreadsheetProcessorFactory" href="../classes/cymapgt_core_application_spreadsheet_SpreadsheetProcessor_SpreadsheetProcessorFactory/setValueBinder.xhtml">setValueBinder</a>()
+                    </li><li>public  <a title="cymapgt\core\application\spreadsheet\SpreadsheetProcessor\SpreadsheetProcessorFactory" href="../classes/cymapgt_core_application_spreadsheet_SpreadsheetProcessor_SpreadsheetProcessorFactory/getValueBinder.xhtml">getValueBinder</a>()
+                    </li></ul>
+
+            }<br/></div>
+        <h2 id="tasks">Tasks</h2>
+        <table class="styled">
+          <thead>
+            <tr>
+              <th style="width:3em;">Line</th>
+              <th>Task</th>
+            </tr>
+          </thead>
+          <tr>
+            <td class="nummeric">305</td>
+            <td>VALIDATE IS VALID BINDER NAME AND CLASSNAME (THOROUGH))...Cyril</td>
+          </tr>
+        </table>
+        <h2 id="members">Members</h2>
+        <div class="styled members">
+          <h4>private</h4>
+          <ul class="members">
+            <li id="baseDir">
+              <strong>$baseDir</strong>
+            </li>
+            <li id="cacheArray">
+              <strong>$cacheArray</strong>
+            </li>
+            <li id="instance">
+              <strong>$instance</strong>
+            </li>
+            <li id="rwFileTypes">
+              <strong>$rwFileTypes</strong>
+            </li>
+            <li id="sandboxMode">
+              <strong>$sandboxMode</strong>
+            </li>
+            <li id="valueBinder">
+              <strong>$valueBinder</strong>
+            </li>
+            <li id="valueBinders">
+              <strong>$valueBinders</strong>
+            </li>
+          </ul>
+        </div>
+        <h2 id="methods">Methods</h2>
+        <div class="styled">
+          <h4>public</h4>
+          <ul>
+            <li id="__clone"><a title="cymapgt\core\application\spreadsheet\SpreadsheetProcessor\SpreadsheetProcessorFactory" href="../classes/cymapgt_core_application_spreadsheet_SpreadsheetProcessor_SpreadsheetProcessorFactory/__clone.xhtml">__clone()</a>
+                — Returns the singleton instance, or creates it if not existing</li>
+            <li id="addValueBinder"><a title="cymapgt\core\application\spreadsheet\SpreadsheetProcessor\SpreadsheetProcessorFactory" href="../classes/cymapgt_core_application_spreadsheet_SpreadsheetProcessor_SpreadsheetProcessorFactory/addValueBinder.xhtml">addValueBinder()</a>
+                — function addValueBinder() = The value binder static array can be updated with new value binder                             class if it was not picked up during initialization, or is required to                             be loaded at runtime Cyril Ogana - 2012-07-17</li>
+            <li id="createFile"><a title="cymapgt\core\application\spreadsheet\SpreadsheetProcessor\SpreadsheetProcessorFactory" href="../classes/cymapgt_core_application_spreadsheet_SpreadsheetProcessor_SpreadsheetProcessorFactory/createFile.xhtml">createFile()</a>
+                — function createFile() = This function returns a handler to one of the stream wrapper                             objects either PHPExcelWrapper or its child CYMAPGT_PHPExcelWrapper                             which is primarily used to write to PDF, HTML and SWF Cyril Ogana - 2012-07-03</li>
+            <li id="getCacheMethod"><a title="cymapgt\core\application\spreadsheet\SpreadsheetProcessor\SpreadsheetProcessorFactory" href="../classes/cymapgt_core_application_spreadsheet_SpreadsheetProcessor_SpreadsheetProcessorFactory/getCacheMethod.xhtml">getCacheMethod()</a>
+                — function getCacheMethod() = This function gets the current cache method Cyril Ogana - 2012-07-03</li>
+            <li id="getInstance"><a title="cymapgt\core\application\spreadsheet\SpreadsheetProcessor\SpreadsheetProcessorFactory" href="../classes/cymapgt_core_application_spreadsheet_SpreadsheetProcessor_SpreadsheetProcessorFactory/getInstance.xhtml">getInstance()</a>
+                — Returns the singleton instance, or creates it if not existing</li>
+            <li id="getValueBinder"><a title="cymapgt\core\application\spreadsheet\SpreadsheetProcessor\SpreadsheetProcessorFactory" href="../classes/cymapgt_core_application_spreadsheet_SpreadsheetProcessor_SpreadsheetProcessorFactory/getValueBinder.xhtml">getValueBinder()</a>
+                — function getValueBinder() = Get the current value binder set in static valueBinder parameter Cyril Ogana - 2012-07-17</li>
+            <li id="initialize"><a title="cymapgt\core\application\spreadsheet\SpreadsheetProcessor\SpreadsheetProcessorFactory" href="../classes/cymapgt_core_application_spreadsheet_SpreadsheetProcessor_SpreadsheetProcessorFactory/initialize.xhtml">initialize()</a>
+                — Initialize the factory with common PHPExcel settings</li>
+            <li id="openFile"><a title="cymapgt\core\application\spreadsheet\SpreadsheetProcessor\SpreadsheetProcessorFactory" href="../classes/cymapgt_core_application_spreadsheet_SpreadsheetProcessor_SpreadsheetProcessorFactory/openFile.xhtml">openFile()</a>
+                — function openFile() = This function returns a handler to one of the stream wrapper                             objects either PHPExcelWrapper or its child CYMAPGT_PHPExcelWrapper                             which is primarily used to write to PDF, HTML and SWF Cyril Ogana - 2012-07-03</li>
+            <li id="resetCacheMethod"><a title="cymapgt\core\application\spreadsheet\SpreadsheetProcessor\SpreadsheetProcessorFactory" href="../classes/cymapgt_core_application_spreadsheet_SpreadsheetProcessor_SpreadsheetProcessorFactory/resetCacheMethod.xhtml">resetCacheMethod()</a>
+                — function resetCacheMethod() = This function resets the cache method to default of Memory Cyril Ogana - 2012-07-03</li>
+            <li id="setBaseDir"><a title="cymapgt\core\application\spreadsheet\SpreadsheetProcessor\SpreadsheetProcessorFactory" href="../classes/cymapgt_core_application_spreadsheet_SpreadsheetProcessor_SpreadsheetProcessorFactory/setBaseDir.xhtml">setBaseDir()</a>
+                — function setBaseDir() - Set the directory from which files are accessible                         from PHP. In sandbox mode, must use the /files                         sandbox folder set for this class</li>
+            <li id="setCacheMethod"><a title="cymapgt\core\application\spreadsheet\SpreadsheetProcessor\SpreadsheetProcessorFactory" href="../classes/cymapgt_core_application_spreadsheet_SpreadsheetProcessor_SpreadsheetProcessorFactory/setCacheMethod.xhtml">setCacheMethod()</a>
+                — function setCacheMethod() = This function sets the default cache method for use by the CYMAPGT_PHPExcelWrapper class TODO: provide config.inc or ini file for advanced configuration of cache methods Cyril Ogana - 2012-07-03</li>
+            <li id="setValueBinder"><a title="cymapgt\core\application\spreadsheet\SpreadsheetProcessor\SpreadsheetProcessorFactory" href="../classes/cymapgt_core_application_spreadsheet_SpreadsheetProcessor_SpreadsheetProcessorFactory/setValueBinder.xhtml">setValueBinder()</a>
+                — function setValueBinder() = Set the 'default' value binder to be used by objects generated                             whose file handler was instantiated by this factory class Cyril Ogana - 2012-07-17</li>
+          </ul>
+        </div>
+      </section>
+    </div>
+    <footer>
+      <span>Generated using phpDox 0.7.0 - Copyright (C) 2010 - 2015 by Arne Blankerts</span>
+    </footer>
+  </body>
+</html>

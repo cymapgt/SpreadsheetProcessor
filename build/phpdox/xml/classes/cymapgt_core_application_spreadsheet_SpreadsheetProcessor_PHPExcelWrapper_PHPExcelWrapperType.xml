@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="cymapgt\core\application\spreadsheet\SpreadsheetProcessor\PHPExcelWrapper\PHPExcelWrapperType" namespace="cymapgt\core\application\spreadsheet\SpreadsheetProcessor\PHPExcelWrapper" name="PHPExcelWrapperType" abstract="false" final="false" start="13" end="20">
+  <file path="/home/rhossis/NetBeansProjects/cymapgt/core/application/spreadsheet/src/SpreadsheetProcessor/PHPExcelWrapper" file="PHPExcelWrapperType.php" realpath="/home/rhossis/NetBeansProjects/cymapgt/core/application/spreadsheet/src/SpreadsheetProcessor/PHPExcelWrapper/PHPExcelWrapperType.php" size="583" time="2014-10-01T07:56:09+03:00" unixtime="1412139369" sha1="f415eef792fd5f691c8226db793ea759ec1f47cc" relative="SpreadsheetProcessor/PHPExcelWrapper/PHPExcelWrapperType.php"/>
+  <constant name="Excel5" value="0"/>
+  <constant name="Excel2007" value="1"/>
+  <constant name="CSV" value="2"/>
+  <constant name="PDF" value="3"/>
+  <constant name="HTML" value="4"/>
+</class>

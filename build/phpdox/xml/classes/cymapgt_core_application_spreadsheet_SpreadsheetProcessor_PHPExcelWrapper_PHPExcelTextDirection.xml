@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="cymapgt\core\application\spreadsheet\SpreadsheetProcessor\PHPExcelWrapper\PHPExcelTextDirection" namespace="cymapgt\core\application\spreadsheet\SpreadsheetProcessor\PHPExcelWrapper" name="PHPExcelTextDirection" abstract="false" final="false" start="12" end="17">
+  <file path="/home/rhossis/NetBeansProjects/cymapgt/core/application/spreadsheet/src/SpreadsheetProcessor/PHPExcelWrapper" file="PHPExcelTextDirection.php" realpath="/home/rhossis/NetBeansProjects/cymapgt/core/application/spreadsheet/src/SpreadsheetProcessor/PHPExcelWrapper/PHPExcelTextDirection.php" size="445" time="2014-10-01T07:56:09+03:00" unixtime="1412139369" sha1="2ff39d1620794b7e7f4ec0ce9eb31ee655bbbc34" relative="SpreadsheetProcessor/PHPExcelWrapper/PHPExcelTextDirection.php"/>
+  <docblock>
+    <description compact="PHPExcelTextDirection Store codes for excel text direction"/>
+    <category value="CYMAPGTReporting"/>
+    <package value="core.application.spreadsheet.SpreadsheetProcessor"/>
+    <copyright value="Copyright (c) 2012 CYMAP-GT"/>
+  </docblock>
+  <constant name="Clockwise" value="0"/>
+  <constant name="CounterClockwise" value="1"/>
+  <constant name="Stacked" value="2"/>
+</class>

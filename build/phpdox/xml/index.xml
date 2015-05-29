@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<index xmlns="http://xml.phpdox.net/src" basedir="/home/rhossis/NetBeansProjects/cymapgt/core/application/spreadsheet/src">
+  <namespace name="cymapgt\Exception">
+    <class name="SpreadsheetProcessorFactoryException" src="Exception/SpreadsheetProcessorFactoryException.php" description="SpreadsheetProcessorFactoryException This is the exception class for the SpreadsheetProcessorFactory" xml="classes/cymapgt_Exception_SpreadsheetProcessorFactoryException.xml"/>
+    <class name="SpreadsheetProcessorException" src="Exception/SpreadsheetProcessorException.php" description="SpreadsheetProcessorException This is the exception class for the SpreadsheetProcessor" xml="classes/cymapgt_Exception_SpreadsheetProcessorException.xml"/>
+  </namespace>
+  <namespace name="cymapgt\core\application\spreadsheet\SpreadsheetProcessor">
+    <class name="PHPExcelWrapper" src="SpreadsheetProcessor/PHPExcelWrapper.php" description="PHPExcelWrapper class is a wrapper for the PHPExcel library" xml="classes/cymapgt_core_application_spreadsheet_SpreadsheetProcessor_PHPExcelWrapper.xml"/>
+    <class name="SpreadsheetProcessorFactory" src="SpreadsheetProcessor/SpreadsheetProcessorFactory.php" description="SpreadsheetProcessorFactory This class is a singleton factory. It creates file handlers to the excel workbook object and to csv, and also wraps important static methods from the PHPExcel library e.g caching" xml="classes/cymapgt_core_application_spreadsheet_SpreadsheetProcessor_SpreadsheetProcessorFactory.xml"/>
+    <class name="SpreadsheetProcessor" src="SpreadsheetProcessor/SpreadsheetProcessor.php" description="PHPExcel_CachedObjectStorageFactory - This class encapsulates a number of key PHPExcel methods in order to make   creation and manipulation of files less verbose - It also provides an organized structure of managing temporary files on disk." xml="classes/cymapgt_core_application_spreadsheet_SpreadsheetProcessor_SpreadsheetProcessor.xml"/>
+  </namespace>
+  <namespace name="cymapgt\core\application\spreadsheet\SpreadsheetProcessor\PHPExcelWrapper">
+    <class name="PHPExcelBorderStyle" src="SpreadsheetProcessor/PHPExcelWrapper/PHPExcelBorderStyle.php" xml="classes/cymapgt_core_application_spreadsheet_SpreadsheetProcessor_PHPExcelWrapper_PHPExcelBorderStyle.xml"/>
+    <class name="PHPExcelTmpFilePath" src="SpreadsheetProcessor/PHPExcelWrapper/PHPExcelTmpFilePath.php" description="PHPExcelTmpFilePath This stores filepaths that act as phpexcel's 'tmp' before user copies the report from temp to other folder custom .htaccess should be applied to each folder (for remote (sandbox) mode only)" xml="classes/cymapgt_core_application_spreadsheet_SpreadsheetProcessor_PHPExcelWrapper_PHPExcelTmpFilePath.xml"/>
+    <class name="PHPExcelWrapperType" src="SpreadsheetProcessor/PHPExcelWrapper/PHPExcelWrapperType.php" xml="classes/cymapgt_core_application_spreadsheet_SpreadsheetProcessor_PHPExcelWrapper_PHPExcelWrapperType.xml"/>
+    <class name="PHPExcelBorderType" src="SpreadsheetProcessor/PHPExcelWrapper/PHPExcelBorderType.php" description="PHPExcelBorderType Codes for the border types supported by PHPExcel" xml="classes/cymapgt_core_application_spreadsheet_SpreadsheetProcessor_PHPExcelWrapper_PHPExcelBorderType.xml"/>
+    <class name="PHPExcelTextDirection" src="SpreadsheetProcessor/PHPExcelWrapper/PHPExcelTextDirection.php" description="PHPExcelTextDirection Store codes for excel text direction" xml="classes/cymapgt_core_application_spreadsheet_SpreadsheetProcessor_PHPExcelWrapper_PHPExcelTextDirection.xml"/>
+    <class name="PHPExcelHFCodes" src="SpreadsheetProcessor/PHPExcelWrapper/PHPExcelHFCodes.php" description="PHPExcelHFCodes This enables use of OpenXML standards for header codes. These can be used when declaring inline formatting on a worksheets Header/Footer" xml="classes/cymapgt_core_application_spreadsheet_SpreadsheetProcessor_PHPExcelWrapper_PHPExcelHFCodes.xml"/>
+  </namespace>
+  <namespace name="">
+    <class name="Exception" xml="classes/Exception.xml"/>
+  </namespace>
+</index>

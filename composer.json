@@ -21,6 +21,7 @@
     "description" : "Wrapper for PHPExcel. Provides singleton factory for Spreadsheet manufacture and processing",
     "license" : "BSD 3-clause",
     "require" : {
+        "php" : ">=5.4.0",
         "phpoffice/phpexcel" : "1.*"
     },
     "require-dev" : {

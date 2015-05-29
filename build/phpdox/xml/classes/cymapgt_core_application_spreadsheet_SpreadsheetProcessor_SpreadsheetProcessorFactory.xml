@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="cymapgt\core\application\spreadsheet\SpreadsheetProcessor\SpreadsheetProcessorFactory" namespace="cymapgt\core\application\spreadsheet\SpreadsheetProcessor" name="SpreadsheetProcessorFactory" abstract="false" final="false" start="19" end="352">
+  <file path="/home/rhossis/NetBeansProjects/cymapgt/core/application/spreadsheet/src/SpreadsheetProcessor" file="SpreadsheetProcessorFactory.php" realpath="/home/rhossis/NetBeansProjects/cymapgt/core/application/spreadsheet/src/SpreadsheetProcessor/SpreadsheetProcessorFactory.php" size="15306" time="2014-10-01T07:56:09+03:00" unixtime="1412139369" sha1="25500cbbe9af33bc7c2c292079b03038f52f6c0a" relative="SpreadsheetProcessor/SpreadsheetProcessorFactory.php"/>
+  <docblock>
+    <description compact="SpreadsheetProcessorFactory This class is a singleton factory. It creates file handlers to the excel workbook object and to csv, and also wraps important static methods from the PHPExcel library e.g caching"/>
+    <category value="Spreadsheet"/>
+    <package value="cymapgt.core.application.spreadsheet"/>
+    <license name="http://www.opensource.org/licenses/bsd-license.php"/>
+    <copyright value="Copyright (c) 2014 - cymap"/>
+  </docblock>
+  <member name="cacheArray" type="array" visibility="private" line="21"/>
+  <member name="rwFileTypes" type="array" visibility="private" line="24"/>
+  <member name="valueBinder" type="string" default="'default'" visibility="private" line="25"/>
+  <member name="valueBinders" type="array" visibility="private" line="26"/>
+  <member name="instance" type="{unknown}" visibility="private" line="29"/>
+  <member name="sandboxMode" type="{unknown}" visibility="private" line="32"/>
+  <member name="baseDir" type="{unknown}" visibility="private" line="35"/>
+  <constructor name="__construct" start="38" end="39" abstract="false" final="false" static="false" visibility="private"/>
+  <method name="getInstance" start="48" end="54" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Returns the singleton instance, or creates it if not existing"/>
+      <return type="object"/>
+      <access value="public"/>
+    </docblock>
+  </method>
+  <method name="__clone" start="61" end="63" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Returns the singleton instance, or creates it if not existing"/>
+      <access value="public"/>
+    </docblock>
+  </method>
+  <method name="initialize" start="72" end="140" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Initialize the factory with common PHPExcel settings"/>
+      <param description="- Set sandbox mode 0 is local, 1 is remote" type="object" variable="$sandboxMode">
+        <type full="cymapgt\core\application\spreadsheet\SpreadsheetProcessor\bool" namespace="cymapgt\core\application\spreadsheet\SpreadsheetProcessor" name="bool"/>
+      </param>
+      <access value="public"/>
+    </docblock>
+    <parameter name="sandboxMode" byreference="false" type="integer" default="0"/>
+    <inline>
+      <comment value="set Sandbox mode" line="73"/>
+      <comment value="set Base Dir" line="76"/>
+      <comment value="initialize CachedObjectStorageFactory and array to store cache methods" line="79"/>
+      <comment value="1) CACHING" line="82"/>
+      <comment value="assign the values to array dictionary" line="85"/>
+      <comment value="2) READING &amp; WRITING FILES" line="98"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="- We already have classes with lovely functionality for handling PHPExcel's" line="99"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="complex properties" line="100"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="- The lovely PHPExcelWrapper class by Zeriph - http://www.codeplex.com/site/users/view/zeriph" line="101"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="will handle manipulation of Excel 2007, Excel 5 and CSV files. It is located in" line="102"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="PHPExcelWrapper.php file, which we have included here" line="103"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="- We extend this class with CYMAPGT_PHPExcelWrapper to enable handling of PDF, SWF," line="104"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="and HTML output. This class is included in CYMAPGT_PHPExcelWrapper.php, included here" line="105"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="Again, as a factory, we return instances of objects, or make use of their static methods" line="106"/>
+      <comment value="rwFileTypes array contains list of possible file types" line="111"/>
+      <comment value="initialize the value binders" line="137"/>
+    </inline>
+  </method>
+  <method name="setBaseDir" start="152" end="161" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="function setBaseDir() - Set the directory from which files are accessible                         from PHP. In sandbox mode, must use the /files                         sandbox folder set for this class"/>
+      <param description="- Directory where to store" type="string" variable="$dir"/>
+      <access value="publc"/>
+      <static/>
+    </docblock>
+    <parameter name="dir" byreference="false" type="{unknown}"/>
+    <inline>
+      <comment value="should be writable" line="153"/>
+    </inline>
+  </method>
+  <method name="setCacheMethod" start="175" end="179" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="function setCacheMethod() = This function sets the default cache method for use by the CYMAPGT_PHPExcelWrapper class TODO: provide config.inc or ini file for advanced configuration of cache methods Cyril Ogana - 2012-07-03"/>
+      <param description="The cache method, which should be one of the indices" type="string" variable="$cacheMethod">of $cacheArray</param>
+      <param description="The cache method settings. default is null" type="string" variable="$cacheConfigArray"/>
+      <return type="object">
+        <type full="cymapgt\core\application\spreadsheet\SpreadsheetProcessor\void" namespace="cymapgt\core\application\spreadsheet\SpreadsheetProcessor" name="void"/>
+      </return>
+      <access value="public"/>
+    </docblock>
+    <parameter name="cacheMethod" byreference="false" type="string" default="'Memory'"/>
+    <parameter name="cacheConfigArray" byreference="false" type="{unknown}" default="null"/>
+    <inline>
+      <comment value="Get the const, which PHPExcel understands" line="176"/>
+    </inline>
+  </method>
+  <method name="getCacheMethod" start="189" end="200" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="function getCacheMethod() = This function gets the current cache method Cyril Ogana - 2012-07-03"/>
+      <param description="the type, using the ..CACHEGET..constants defined in this file" type="int" variable="$type"/>
+      <return description="string or false" type="mixed"/>
+      <access value="public"/>
+    </docblock>
+    <parameter name="type" byreference="false" type="{unknown}" default="SPREADSHEETPROCESSOR_CACHEGETCUR"/>
+  </method>
+  <method name="resetCacheMethod" start="209" end="211" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="function resetCacheMethod() = This function resets the cache method to default of Memory Cyril Ogana - 2012-07-03"/>
+      <return type="object">
+        <type full="cymapgt\core\application\spreadsheet\SpreadsheetProcessor\void" namespace="cymapgt\core\application\spreadsheet\SpreadsheetProcessor" name="void"/>
+      </return>
+      <access value="public"/>
+    </docblock>
+  </method>
+  <method name="createFile" start="226" end="241" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="function createFile() = This function returns a handler to one of the stream wrapper                             objects either PHPExcelWrapper or its child CYMAPGT_PHPExcelWrapper                             which is primarily used to write to PDF, HTML and SWF Cyril Ogana - 2012-07-03"/>
+      <param description="This is the file name of the file to create" type="string" variable="$fileName"/>
+      <param description="This is flag to indicate whether it is a spreadsheet type or other" type="object" variable="$spreadsheet">type. Spreadsheet is xlsx, xls or csv (csv hypothetically)<type full="cymapgt\core\application\spreadsheet\SpreadsheetProcessor\bool" namespace="cymapgt\core\application\spreadsheet\SpreadsheetProcessor" name="bool"/></param>
+      <param description="This is the actual file type as per $rwFileTypes array configuration" type="string" variable="$type"/>
+      <parma value="bool   $ovrFlag     If true, any file with the given name will be overwritten"/>
+      <return description="PHPExcelWrapper or CYMAPGT_PHPExcelWrapper" type="object"/>
+      <access value="public"/>
+    </docblock>
+    <parameter name="fileName" byreference="false" type="string" default="'tmp'"/>
+    <parameter name="spreadsheet" byreference="false" type="{unknown}" default="true"/>
+    <parameter name="type" byreference="false" type="string" default="'CSV'"/>
+    <parameter name="ovrFlag" byreference="false" type="{unknown}" default="false"/>
+    <inline>
+      <comment value="we only will allow creating Excel 2007 files or CSV for now .. CO 20130702" line="227"/>
+      <comment value="$fileDir  = realpath($fileDir);" line="230"/>
+      <comment value="die($fileDir);" line="239"/>
+    </inline>
+  </method>
+  <method name="openFile" start="253" end="287" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="function openFile() = This function returns a handler to one of the stream wrapper                             objects either PHPExcelWrapper or its child CYMAPGT_PHPExcelWrapper                             which is primarily used to write to PDF, HTML and SWF Cyril Ogana - 2012-07-03"/>
+      <param description="This is the file name of the file to create" type="string" variable="$fileName"/>
+      <param description="This is the filedir. Or default of one of the object types" type="string" variable="$fileDir"/>
+      <return description="PHPExcelWrapper or CYMAPGT_PHPExcelWrapper" type="object"/>
+      <access value="public"/>
+    </docblock>
+    <parameter name="fileName" byreference="false" type="{unknown}"/>
+    <parameter name="fileDir" byreference="false" type="string" default="'Excel2007'"/>
+    <inline>
+      <comment value="$fileDir       = self::$baseDir.self::$rwFileTypes[($fileTypeIndex)][&quot;FilePath&quot;];" line="262"/>
+      <comment value="$fileDir       = realpath($fileDir);" line="264"/>
+      <comment value="make the fileName fully qualified" line="269"/>
+      <comment value="Open a reader" line="272"/>
+      <comment value="$inputFileType = \PHPExcel_IOFactory::identify($fileNameFqext);" line="273"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="$objReader = \PHPExcel_IOFactory::createReader($inputFileType);" line="274"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="$objPHPExcel = $objReader-&gt;load($fileNameFqext);" line="275"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="$objWriter = \PHPExcel_IOFactory::createWriter($objPHPExcel,$fileTypeIndex);" line="276"/>
+      <comment value="$phpExcelObj-&gt;setXlObj($objPHPExcel,0);" line="278"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="$copiedFileName = $phpExcelObj-&gt;fileName;" line="279"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="$phpExcelObj-&gt;fileName = $fileNameFqext;" line="280"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="unlink($copiedFileName);" line="281"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="$phpExcelObj-&gt;setXlObj($objReader,1);" line="282"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="$phpExcelObj-&gt;setXlObj($objWriter,2);" line="283"/>
+    </inline>
+  </method>
+  <method name="addValueBinder" start="304" end="322" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="function addValueBinder() = The value binder static array can be updated with new value binder                             class if it was not picked up during initialization, or is required to                             be loaded at runtime Cyril Ogana - 2012-07-17"/>
+      <param description="This is the name of the value binder to register" type="string" variable="$binderName"/>
+      <return type="object">
+        <type full="cymapgt\core\application\spreadsheet\SpreadsheetProcessor\void" namespace="cymapgt\core\application\spreadsheet\SpreadsheetProcessor" name="void"/>
+      </return>
+      <access value="public"/>
+    </docblock>
+    <parameter name="binderName" byreference="false" type="{unknown}"/>
+    <parameter name="binderClassName" byreference="false" type="{unknown}"/>
+    <inline>
+      <todo value="VALIDATE IS VALID BINDER NAME AND CLASSNAME (THOROUGH))...Cyril" line="305"/>
+    </inline>
+  </method>
+  <method name="setValueBinder" start="332" end="340" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="function setValueBinder() = Set the 'default' value binder to be used by objects generated                             whose file handler was instantiated by this factory class Cyril Ogana - 2012-07-17"/>
+      <param description="This is the name of the value binder to activate" type="string" variable="$binderName"/>
+      <return type="object">
+        <type full="cymapgt\core\application\spreadsheet\SpreadsheetProcessor\void" namespace="cymapgt\core\application\spreadsheet\SpreadsheetProcessor" name="void"/>
+      </return>
+      <access value="public"/>
+    </docblock>
+    <parameter name="binderName" byreference="false" type="string" default="'default'"/>
+    <inline>
+      <comment value="append binder name to static property" line="338"/>
+    </inline>
+  </method>
+  <method name="getValueBinder" start="348" end="351" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="function getValueBinder() = Get the current value binder set in static valueBinder parameter Cyril Ogana - 2012-07-17"/>
+      <return description="Return a PHPExcel_ValueBinder object" type="object"/>
+      <access value="public"/>
+    </docblock>
+  </method>
+</class>

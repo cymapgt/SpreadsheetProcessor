@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:pu="http://schema.phpunit.de/coverage/1.0" lang="en">
+  <head>
+    <title>phpDox - Test Method</title>
+    <link rel="stylesheet" type="text/css" href="../../css/style.css" media="screen"/>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  </head>
+  <body>
+    <nav class="topnav">
+      <ul>
+        <li>
+          <div class="logo"><span>/**</span>phpDox</div>
+        </li>
+        <li class="separator">
+          <a href="../../index.xhtml">Overview</a>
+        </li>
+        <li class="separator">
+          <a href="../../namespaces.xhtml">Namespaces</a>
+        </li>
+        <li>
+          <a href="../../classes.xhtml">Classes</a>
+        </li>
+        <li class="separator">
+          <a href="../../source/index.xhtml">Source</a>
+        </li>
+      </ul>
+    </nav>
+    <div id="mainstage">
+      <div class="box">
+        <ul class="breadcrumb">
+          <li>
+            <a href="../../index.xhtml">Overview</a>
+          </li>
+          <li class="separator">
+            <a href="../../classes.xhtml">Classes</a>
+          </li>
+          <li class="separator">
+            <a href="../../classes.xhtml#cymapgt_core_application_spreadsheet_SpreadsheetProcessor">cymapgt\core\application\spreadsheet\SpreadsheetProcessor</a>
+          </li>
+          <li class="separator">
+            <a title="cymapgt\core\application\spreadsheet\SpreadsheetProcessor\SpreadsheetProcessor" href="../../classes/cymapgt_core_application_spreadsheet_SpreadsheetProcessor_SpreadsheetProcessor.xhtml">SpreadsheetProcessor</a>
+          </li>
+          <li class="separator">setHyperlink</li>
+        </ul>
+      </div>
+      <nav class="box">
+        <ul>
+          <li>
+            <a href="#introduction">Introduction</a>
+          </li>
+          <li>
+            <a href="#synopsis">Synopsis</a>
+          </li>
+          <li>
+            <a href="#parameter">Parameter</a>
+          </li>
+          <li>
+            <a href="#return">Return</a>
+          </li>
+          <li>
+            <a href="#overrides">Overrides</a>
+          </li>
+          <li>
+            <a href="../../source/SpreadsheetProcessor/SpreadsheetProcessor.php.xhtml#line258">Source</a>
+          </li>
+        </ul>
+      </nav>
+      <section>
+        <h1><small>cymapgt\core\application\spreadsheet\SpreadsheetProcessor\SpreadsheetProcessor::</small>setHyperlink</h1>
+        <h4>function setHyperlink()  = This function handles adding a hyperlink to a cell. If the                            filetype is not Excel5 or Excel2007, the function returns FALSE, else Cyril Ogana - 2012-07-03</h4>
+        <p/>
+        <ul/>
+        <h2 id="signature">Signature</h2>
+        <div class="styled synopsis">
+          <code>public function setHyperlink(string
+        $link,
+            [string
+        $tooltip = '',
+            [string
+        $coordType = '',
+            [string
+        $cellCoord = '',
+            [integer
+        $cellR = 1,
+            [integer
+        $cellC = 0]]]]] )
+            </code>
+        </div>
+        <h2 id="parameterlist">Parameters</h2>
+        <dl class="styled">
+          <dt><code>$link</code>
+                —
+                string</dt>
+          <dd>This is the link to be created</dd>
+          <dt><code>$tooltip</code>
+                —
+                string</dt>
+          <dd>This is the tooltip to the link</dd>
+          <dt><code>$coordType</code>
+                —
+                string</dt>
+          <dd>This coordinate type takes "TEXT" or "NUMERIC" excel cell coords</dd>
+          <dt><code>$cellCoord</code>
+                —
+                string</dt>
+          <dd>This if $coordType is "TEXT", $cellCoord is used to locate cell</dd>
+          <dt><code>$cellR</code>
+                —
+                integer</dt>
+          <dd>This if $coordType is "NUMERIC", $cellR is used to locate row</dd>
+          <dt><code>$cellC</code>
+                —
+                integer</dt>
+          <dd>This if $coordType is "NUMERIC", $cellC is used to locate column</dd>
+        </dl>
+        <h2 id="return">Returns</h2>
+        <dl class="styled">
+          <dt>bool</dt>
+          <dd>True on success, false on failure<br/>
+        </dd>
+        </dl>
+        <h2 id="overrides">Parent Implementation</h2>
+        <ul class="styled">
+          <li>
+            <code>
+              <a title="cymapgt\core\application\spreadsheet\SpreadsheetProcessor\PHPExcelWrapper" href="../../classes/cymapgt_core_application_spreadsheet_SpreadsheetProcessor_PHPExcelWrapper/setHyperlink.xhtml">PHPExcelWrapper</a>
+            </code>
+          </li>
+        </ul>
+      </section>
+    </div>
+    <footer>
+      <span>Generated using phpDox 0.7.0 - Copyright (C) 2010 - 2015 by Arne Blankerts</span>
+    </footer>
+  </body>
+</html>

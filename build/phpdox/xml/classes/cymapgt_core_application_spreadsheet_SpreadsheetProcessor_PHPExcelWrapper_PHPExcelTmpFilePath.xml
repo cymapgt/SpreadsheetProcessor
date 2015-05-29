@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="cymapgt\core\application\spreadsheet\SpreadsheetProcessor\PHPExcelWrapper\PHPExcelTmpFilePath" namespace="cymapgt\core\application\spreadsheet\SpreadsheetProcessor\PHPExcelWrapper" name="PHPExcelTmpFilePath" abstract="false" final="false" start="15" end="23">
+  <file path="/home/rhossis/NetBeansProjects/cymapgt/core/application/spreadsheet/src/SpreadsheetProcessor/PHPExcelWrapper" file="PHPExcelTmpFilePath.php" realpath="/home/rhossis/NetBeansProjects/cymapgt/core/application/spreadsheet/src/SpreadsheetProcessor/PHPExcelWrapper/PHPExcelTmpFilePath.php" size="752" time="2014-10-01T07:56:09+03:00" unixtime="1412139369" sha1="de507f0486fee5497ddcefb229958383d8e1a991" relative="SpreadsheetProcessor/PHPExcelWrapper/PHPExcelTmpFilePath.php"/>
+  <docblock>
+    <description compact="PHPExcelTmpFilePath This stores filepaths that act as phpexcel's 'tmp' before user copies the report from temp to other folder custom .htaccess should be applied to each folder (for remote (sandbox) mode only)"/>
+    <category value="CYMAPGTReporting"/>
+    <package value="core.application.spreadsheet.SpreadsheetProcessor"/>
+    <copyright value="Copyright (c) 2012 CYMAP-GT"/>
+  </docblock>
+  <constant name="TMP_EXCEL" value="&quot;files/spreadsheet/&quot;"/>
+  <constant name="TMP_PDF" value="&quot;files/other/pdf/&quot;"/>
+  <constant name="TMP_HTML" value="&quot;files/other/html&quot;"/>
+  <constant name="TMP_SWF" value="&quot;files/other/swf/&quot;"/>
+  <constant name="TMP_TEXT" value="&quot;files/text/&quot;"/>
+  <constant name="TMP_IMAGE" value="&quot;files/images&quot;"/>
+</class>
